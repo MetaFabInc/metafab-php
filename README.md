@@ -1,4 +1,4 @@
-# Metafab
+# MetaFab
 
  Complete MetaFab API references and guides can be found at: https://trymetafab.com
 
@@ -37,7 +37,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/Metafab/vendor/autoload.php');
+require_once('/path/to/MetaFab/vendor/autoload.php');
 ```
 
 ## Getting Started
