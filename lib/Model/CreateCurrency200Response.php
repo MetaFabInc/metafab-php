@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MetaFab
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace MetaFab\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \MetaFab\ObjectSerializer;
 
 /**
  * CreateCurrency200Response Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MetaFab
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -66,7 +66,7 @@ class CreateCurrency200Response implements ModelInterface, ArrayAccess, \JsonSer
         'supply_cap' => 'int',
         'updated_at' => 'string',
         'created_at' => 'string',
-        'contract' => '\OpenAPI\Client\Model\CreateCurrency200ResponseAllOfContract'
+        'contract' => '\MetaFab\Model\CreateCurrency200ResponseAllOfContract'
     ];
 
     /**
@@ -571,7 +571,7 @@ class CreateCurrency200Response implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets contract
      *
-     * @return \OpenAPI\Client\Model\CreateCurrency200ResponseAllOfContract|null
+     * @return \MetaFab\Model\CreateCurrency200ResponseAllOfContract|null
      */
     public function getContract()
     {
@@ -581,7 +581,7 @@ class CreateCurrency200Response implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets contract
      *
-     * @param \OpenAPI\Client\Model\CreateCurrency200ResponseAllOfContract|null $contract contract
+     * @param \MetaFab\Model\CreateCurrency200ResponseAllOfContract|null $contract contract
      *
      * @return self
      */

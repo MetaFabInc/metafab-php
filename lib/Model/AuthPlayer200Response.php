@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MetaFab
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace MetaFab\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \MetaFab\ObjectSerializer;
 
 /**
  * AuthPlayer200Response Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MetaFab
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -65,7 +65,7 @@ class AuthPlayer200Response implements ModelInterface, ArrayAccess, \JsonSeriali
         'access_token' => 'string',
         'updated_at' => 'string',
         'created_at' => 'string',
-        'wallet' => '\OpenAPI\Client\Model\WalletModel'
+        'wallet' => '\MetaFab\Model\WalletModel'
     ];
 
     /**
@@ -535,7 +535,7 @@ class AuthPlayer200Response implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets wallet
      *
-     * @return \OpenAPI\Client\Model\WalletModel|null
+     * @return \MetaFab\Model\WalletModel|null
      */
     public function getWallet()
     {
@@ -545,7 +545,7 @@ class AuthPlayer200Response implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets wallet
      *
-     * @param \OpenAPI\Client\Model\WalletModel|null $wallet wallet
+     * @param \MetaFab\Model\WalletModel|null $wallet wallet
      *
      * @return self
      */

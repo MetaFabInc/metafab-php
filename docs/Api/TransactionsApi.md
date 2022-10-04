@@ -1,4 +1,4 @@
-# OpenAPI\Client\TransactionsApi
+# MetaFab\TransactionsApi
 
 All URIs are relative to https://api.trymetafab.com, except if the operation defines another base path.
 
@@ -10,7 +10,7 @@ All URIs are relative to https://api.trymetafab.com, except if the operation def
 ## `getTransaction()`
 
 ```php
-getTransaction($transaction_id): \OpenAPI\Client\Model\TransactionModel
+getTransaction($transaction_id): \MetaFab\Model\TransactionModel
 ```
 
 Get transaction
@@ -25,7 +25,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\TransactionsApi(
+$apiInstance = new MetaFab\Api\TransactionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -48,7 +48,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TransactionModel**](../Model/TransactionModel.md)
+[**\MetaFab\Model\TransactionModel**](../Model/TransactionModel.md)
 
 ### Authorization
 

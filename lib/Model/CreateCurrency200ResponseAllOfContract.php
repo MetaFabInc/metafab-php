@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MetaFab
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace MetaFab\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \MetaFab\ObjectSerializer;
 
 /**
  * CreateCurrency200ResponseAllOfContract Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MetaFab
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -66,7 +66,7 @@ class CreateCurrency200ResponseAllOfContract implements ModelInterface, ArrayAcc
         'address' => 'string',
         'updated_at' => 'string',
         'created_at' => 'string',
-        'transactions' => '\OpenAPI\Client\Model\TransactionModel[]'
+        'transactions' => '\MetaFab\Model\TransactionModel[]'
     ];
 
     /**
@@ -571,7 +571,7 @@ class CreateCurrency200ResponseAllOfContract implements ModelInterface, ArrayAcc
     /**
      * Gets transactions
      *
-     * @return \OpenAPI\Client\Model\TransactionModel[]|null
+     * @return \MetaFab\Model\TransactionModel[]|null
      */
     public function getTransactions()
     {
@@ -581,7 +581,7 @@ class CreateCurrency200ResponseAllOfContract implements ModelInterface, ArrayAcc
     /**
      * Sets transactions
      *
-     * @param \OpenAPI\Client\Model\TransactionModel[]|null $transactions transactions
+     * @param \MetaFab\Model\TransactionModel[]|null $transactions transactions
      *
      * @return self
      */

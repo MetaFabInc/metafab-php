@@ -1,4 +1,4 @@
-# OpenAPI\Client\ContractsApi
+# MetaFab\ContractsApi
 
 All URIs are relative to https://api.trymetafab.com, except if the operation defines another base path.
 
@@ -13,7 +13,7 @@ All URIs are relative to https://api.trymetafab.com, except if the operation def
 ## `createContract()`
 
 ```php
-createContract($x_authorization, $create_contract_request): \OpenAPI\Client\Model\ContractModel
+createContract($x_authorization, $create_contract_request): \MetaFab\Model\ContractModel
 ```
 
 Create custom contract
@@ -28,13 +28,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ContractsApi(
+$apiInstance = new MetaFab\Api\ContractsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $x_authorization = game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `secretKey` of the authenticating game.
-$create_contract_request = new \OpenAPI\Client\Model\CreateContractRequest(); // \OpenAPI\Client\Model\CreateContractRequest
+$create_contract_request = new \MetaFab\Model\CreateContractRequest(); // \MetaFab\Model\CreateContractRequest
 
 try {
     $result = $apiInstance->createContract($x_authorization, $create_contract_request);
@@ -49,11 +49,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
-| **create_contract_request** | [**\OpenAPI\Client\Model\CreateContractRequest**](../Model/CreateContractRequest.md)|  | |
+| **create_contract_request** | [**\MetaFab\Model\CreateContractRequest**](../Model/CreateContractRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ContractModel**](../Model/ContractModel.md)
+[**\MetaFab\Model\ContractModel**](../Model/ContractModel.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ No authorization required
 ## `getContracts()`
 
 ```php
-getContracts($x_game_key): \OpenAPI\Client\Model\ContractModel[]
+getContracts($x_game_key): \MetaFab\Model\ContractModel[]
 ```
 
 Get contracts
@@ -86,7 +86,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ContractsApi(
+$apiInstance = new MetaFab\Api\ContractsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -109,7 +109,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ContractModel[]**](../Model/ContractModel.md)
+[**\MetaFab\Model\ContractModel[]**](../Model/ContractModel.md)
 
 ### Authorization
 
@@ -142,7 +142,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ContractsApi(
+$apiInstance = new MetaFab\Api\ContractsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -187,7 +187,7 @@ No authorization required
 ## `writeContract()`
 
 ```php
-writeContract($contract_id, $x_authorization, $x_password, $write_contract_request): \OpenAPI\Client\Model\TransactionModel
+writeContract($contract_id, $x_authorization, $x_password, $write_contract_request): \MetaFab\Model\TransactionModel
 ```
 
 Write contract data
@@ -202,7 +202,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ContractsApi(
+$apiInstance = new MetaFab\Api\ContractsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -210,7 +210,7 @@ $apiInstance = new OpenAPI\Client\Api\ContractsApi(
 $contract_id = 'contract_id_example'; // string | Any contract id within the MetaFab ecosystem.
 $x_authorization = ["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]; // string | The `secretKey` of a specific game or the `accessToken` of a specific player.
 $x_password = mySecurePassword; // string | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
-$write_contract_request = new \OpenAPI\Client\Model\WriteContractRequest(); // \OpenAPI\Client\Model\WriteContractRequest
+$write_contract_request = new \MetaFab\Model\WriteContractRequest(); // \MetaFab\Model\WriteContractRequest
 
 try {
     $result = $apiInstance->writeContract($contract_id, $x_authorization, $x_password, $write_contract_request);
@@ -227,11 +227,11 @@ try {
 | **contract_id** | **string**| Any contract id within the MetaFab ecosystem. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. | |
 | **x_password** | **string**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
-| **write_contract_request** | [**\OpenAPI\Client\Model\WriteContractRequest**](../Model/WriteContractRequest.md)|  | |
+| **write_contract_request** | [**\MetaFab\Model\WriteContractRequest**](../Model/WriteContractRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TransactionModel**](../Model/TransactionModel.md)
+[**\MetaFab\Model\TransactionModel**](../Model/TransactionModel.md)
 
 ### Authorization
 

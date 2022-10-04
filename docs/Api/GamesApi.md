@@ -1,4 +1,4 @@
-# OpenAPI\Client\GamesApi
+# MetaFab\GamesApi
 
 All URIs are relative to https://api.trymetafab.com, except if the operation defines another base path.
 
@@ -12,7 +12,7 @@ All URIs are relative to https://api.trymetafab.com, except if the operation def
 ## `authGame()`
 
 ```php
-authGame(): \OpenAPI\Client\Model\AuthGame200Response
+authGame(): \MetaFab\Model\AuthGame200Response
 ```
 
 Authenticate game
@@ -27,12 +27,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+$config = MetaFab\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new OpenAPI\Client\Api\GamesApi(
+$apiInstance = new MetaFab\Api\GamesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -53,7 +53,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AuthGame200Response**](../Model/AuthGame200Response.md)
+[**\MetaFab\Model\AuthGame200Response**](../Model/AuthGame200Response.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ This endpoint does not need any parameter.
 ## `createGame()`
 
 ```php
-createGame($create_game_request): \OpenAPI\Client\Model\AuthGame200Response
+createGame($create_game_request): \MetaFab\Model\AuthGame200Response
 ```
 
 Create game
@@ -86,12 +86,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GamesApi(
+$apiInstance = new MetaFab\Api\GamesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$create_game_request = new \OpenAPI\Client\Model\CreateGameRequest(); // \OpenAPI\Client\Model\CreateGameRequest
+$create_game_request = new \MetaFab\Model\CreateGameRequest(); // \MetaFab\Model\CreateGameRequest
 
 try {
     $result = $apiInstance->createGame($create_game_request);
@@ -105,11 +105,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_game_request** | [**\OpenAPI\Client\Model\CreateGameRequest**](../Model/CreateGameRequest.md)|  | |
+| **create_game_request** | [**\MetaFab\Model\CreateGameRequest**](../Model/CreateGameRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AuthGame200Response**](../Model/AuthGame200Response.md)
+[**\MetaFab\Model\AuthGame200Response**](../Model/AuthGame200Response.md)
 
 ### Authorization
 
@@ -127,7 +127,7 @@ No authorization required
 ## `updateGame()`
 
 ```php
-updateGame($game_id, $x_authorization, $update_game_request): \OpenAPI\Client\Model\GameModel
+updateGame($game_id, $x_authorization, $update_game_request): \MetaFab\Model\GameModel
 ```
 
 Update game
@@ -142,14 +142,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GamesApi(
+$apiInstance = new MetaFab\Api\GamesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $game_id = 'game_id_example'; // string | Any game id within the MetaFab ecosystem.
 $x_authorization = game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `secretKey` of the authenticating game.
-$update_game_request = new \OpenAPI\Client\Model\UpdateGameRequest(); // \OpenAPI\Client\Model\UpdateGameRequest
+$update_game_request = new \MetaFab\Model\UpdateGameRequest(); // \MetaFab\Model\UpdateGameRequest
 
 try {
     $result = $apiInstance->updateGame($game_id, $x_authorization, $update_game_request);
@@ -165,11 +165,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **game_id** | **string**| Any game id within the MetaFab ecosystem. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
-| **update_game_request** | [**\OpenAPI\Client\Model\UpdateGameRequest**](../Model/UpdateGameRequest.md)|  | |
+| **update_game_request** | [**\MetaFab\Model\UpdateGameRequest**](../Model/UpdateGameRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GameModel**](../Model/GameModel.md)
+[**\MetaFab\Model\GameModel**](../Model/GameModel.md)
 
 ### Authorization
 

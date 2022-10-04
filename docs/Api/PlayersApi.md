@@ -1,4 +1,4 @@
-# OpenAPI\Client\PlayersApi
+# MetaFab\PlayersApi
 
 All URIs are relative to https://api.trymetafab.com, except if the operation defines another base path.
 
@@ -12,7 +12,7 @@ All URIs are relative to https://api.trymetafab.com, except if the operation def
 ## `authPlayer()`
 
 ```php
-authPlayer($x_game_key): \OpenAPI\Client\Model\AuthPlayer200Response
+authPlayer($x_game_key): \MetaFab\Model\AuthPlayer200Response
 ```
 
 Authenticate player
@@ -27,12 +27,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+$config = MetaFab\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new OpenAPI\Client\Api\PlayersApi(
+$apiInstance = new MetaFab\Api\PlayersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -56,7 +56,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AuthPlayer200Response**](../Model/AuthPlayer200Response.md)
+[**\MetaFab\Model\AuthPlayer200Response**](../Model/AuthPlayer200Response.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ try {
 ## `createPlayer()`
 
 ```php
-createPlayer($x_game_key, $create_player_request): \OpenAPI\Client\Model\AuthPlayer200Response
+createPlayer($x_game_key, $create_player_request): \MetaFab\Model\AuthPlayer200Response
 ```
 
 Create player
@@ -89,13 +89,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\PlayersApi(
+$apiInstance = new MetaFab\Api\PlayersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $x_game_key = game_pk_4SOqpDi8pQdnQgfCOBW29qR8YmwOhxVPz5iHoMgUEJLDdPXgwLuHqZf8ewo2GajZ; // string | The `publishedKey` of a specific game. This can be shared or included in game clients, websites, etc.
-$create_player_request = new \OpenAPI\Client\Model\CreatePlayerRequest(); // \OpenAPI\Client\Model\CreatePlayerRequest
+$create_player_request = new \MetaFab\Model\CreatePlayerRequest(); // \MetaFab\Model\CreatePlayerRequest
 
 try {
     $result = $apiInstance->createPlayer($x_game_key, $create_player_request);
@@ -110,11 +110,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **x_game_key** | **string**| The &#x60;publishedKey&#x60; of a specific game. This can be shared or included in game clients, websites, etc. | |
-| **create_player_request** | [**\OpenAPI\Client\Model\CreatePlayerRequest**](../Model/CreatePlayerRequest.md)|  | |
+| **create_player_request** | [**\MetaFab\Model\CreatePlayerRequest**](../Model/CreatePlayerRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AuthPlayer200Response**](../Model/AuthPlayer200Response.md)
+[**\MetaFab\Model\AuthPlayer200Response**](../Model/AuthPlayer200Response.md)
 
 ### Authorization
 
@@ -132,7 +132,7 @@ No authorization required
 ## `updatePlayer()`
 
 ```php
-updatePlayer($player_id, $x_authorization, $update_player_request): \OpenAPI\Client\Model\PlayerModel
+updatePlayer($player_id, $x_authorization, $update_player_request): \MetaFab\Model\PlayerModel
 ```
 
 Update player
@@ -147,14 +147,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\PlayersApi(
+$apiInstance = new MetaFab\Api\PlayersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $player_id = 'player_id_example'; // string | Any player id within the MetaFab ecosystem.
 $x_authorization = player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `accessToken` of the authenticating player.
-$update_player_request = new \OpenAPI\Client\Model\UpdatePlayerRequest(); // \OpenAPI\Client\Model\UpdatePlayerRequest
+$update_player_request = new \MetaFab\Model\UpdatePlayerRequest(); // \MetaFab\Model\UpdatePlayerRequest
 
 try {
     $result = $apiInstance->updatePlayer($player_id, $x_authorization, $update_player_request);
@@ -170,11 +170,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **player_id** | **string**| Any player id within the MetaFab ecosystem. | |
 | **x_authorization** | **string**| The &#x60;accessToken&#x60; of the authenticating player. | |
-| **update_player_request** | [**\OpenAPI\Client\Model\UpdatePlayerRequest**](../Model/UpdatePlayerRequest.md)|  | |
+| **update_player_request** | [**\MetaFab\Model\UpdatePlayerRequest**](../Model/UpdatePlayerRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\PlayerModel**](../Model/PlayerModel.md)
+[**\MetaFab\Model\PlayerModel**](../Model/PlayerModel.md)
 
 ### Authorization
 

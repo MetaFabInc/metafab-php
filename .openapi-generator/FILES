@@ -41,13 +41,10 @@ docs/Model/WriteContractRequest.md
 git_push.sh
 lib/ApiException.php
 lib/Configuration.php
+lib/ContractsApi.php
+lib/CurrenciesApi.php
+lib/GamesApi.php
 lib/HeaderSelector.php
-lib/MetaFab/ContractsApi.php
-lib/MetaFab/CurrenciesApi.php
-lib/MetaFab/GamesApi.php
-lib/MetaFab/PlayersApi.php
-lib/MetaFab/TransactionsApi.php
-lib/MetaFab/WalletsApi.php
 lib/Model/AuthGame200Response.php
 lib/Model/AuthGame200ResponseAllOf.php
 lib/Model/AuthGame200ResponseAllOf1.php
@@ -79,4 +76,7 @@ lib/Model/UpdatePlayerRequest.php
 lib/Model/WalletModel.php
 lib/Model/WriteContractRequest.php
 lib/ObjectSerializer.php
+lib/PlayersApi.php
+lib/TransactionsApi.php
+lib/WalletsApi.php
 phpunit.xml.dist

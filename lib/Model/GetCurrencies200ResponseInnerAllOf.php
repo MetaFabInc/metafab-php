@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MetaFab
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace MetaFab\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \MetaFab\ObjectSerializer;
 
 /**
  * GetCurrencies200ResponseInnerAllOf Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MetaFab
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class GetCurrencies200ResponseInnerAllOf implements ModelInterface, ArrayAccess,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'contract' => '\OpenAPI\Client\Model\ContractModel'
+        'contract' => '\MetaFab\Model\ContractModel'
     ];
 
     /**
@@ -283,7 +283,7 @@ class GetCurrencies200ResponseInnerAllOf implements ModelInterface, ArrayAccess,
     /**
      * Gets contract
      *
-     * @return \OpenAPI\Client\Model\ContractModel|null
+     * @return \MetaFab\Model\ContractModel|null
      */
     public function getContract()
     {
@@ -293,7 +293,7 @@ class GetCurrencies200ResponseInnerAllOf implements ModelInterface, ArrayAccess,
     /**
      * Sets contract
      *
-     * @param \OpenAPI\Client\Model\ContractModel|null $contract contract
+     * @param \MetaFab\Model\ContractModel|null $contract contract
      *
      * @return self
      */

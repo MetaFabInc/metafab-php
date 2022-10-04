@@ -51,13 +51,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ContractsApi(
+$apiInstance = new MetaFab\Api\ContractsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $x_authorization = game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `secretKey` of the authenticating game.
-$create_contract_request = new \OpenAPI\Client\Model\CreateContractRequest(); // \OpenAPI\Client\Model\CreateContractRequest
+$create_contract_request = new \MetaFab\Model\CreateContractRequest(); // \MetaFab\Model\CreateContractRequest
 
 try {
     $result = $apiInstance->createContract($x_authorization, $create_contract_request);

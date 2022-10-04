@@ -1,4 +1,4 @@
-# OpenAPI\Client\WalletsApi
+# MetaFab\WalletsApi
 
 All URIs are relative to https://api.trymetafab.com, except if the operation defines another base path.
 
@@ -26,7 +26,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\WalletsApi(
+$apiInstance = new MetaFab\Api\WalletsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -67,7 +67,7 @@ No authorization required
 ## `getWalletTransactions()`
 
 ```php
-getWalletTransactions($wallet_id): \OpenAPI\Client\Model\TransactionModel[]
+getWalletTransactions($wallet_id): \MetaFab\Model\TransactionModel[]
 ```
 
 Get wallet transactions
@@ -82,7 +82,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\WalletsApi(
+$apiInstance = new MetaFab\Api\WalletsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -105,7 +105,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TransactionModel[]**](../Model/TransactionModel.md)
+[**\MetaFab\Model\TransactionModel[]**](../Model/TransactionModel.md)
 
 ### Authorization
 

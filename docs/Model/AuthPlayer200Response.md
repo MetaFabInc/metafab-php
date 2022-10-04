@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **access_token** | **string** | This field has not had a description added. | [optional]
 **updated_at** | **string** | This field has not had a description added. | [optional]
 **created_at** | **string** | This field has not had a description added. | [optional]
-**wallet** | [**\OpenAPI\Client\Model\WalletModel**](WalletModel.md) |  | [optional]
+**wallet** | [**\MetaFab\Model\WalletModel**](WalletModel.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

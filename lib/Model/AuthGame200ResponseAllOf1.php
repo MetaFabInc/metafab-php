@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MetaFab
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace MetaFab\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \MetaFab\ObjectSerializer;
 
 /**
  * AuthGame200ResponseAllOf1 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MetaFab
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class AuthGame200ResponseAllOf1 implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'funding_wallet' => '\OpenAPI\Client\Model\WalletModel'
+        'funding_wallet' => '\MetaFab\Model\WalletModel'
     ];
 
     /**
@@ -283,7 +283,7 @@ class AuthGame200ResponseAllOf1 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets funding_wallet
      *
-     * @return \OpenAPI\Client\Model\WalletModel|null
+     * @return \MetaFab\Model\WalletModel|null
      */
     public function getFundingWallet()
     {
@@ -293,7 +293,7 @@ class AuthGame200ResponseAllOf1 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets funding_wallet
      *
-     * @param \OpenAPI\Client\Model\WalletModel|null $funding_wallet funding_wallet
+     * @param \MetaFab\Model\WalletModel|null $funding_wallet funding_wallet
      *
      * @return self
      */
