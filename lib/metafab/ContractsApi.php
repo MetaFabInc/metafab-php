@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\metafab;
+namespace OpenAPI\Client\MetaFab;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
