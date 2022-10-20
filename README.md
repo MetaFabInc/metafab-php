@@ -82,7 +82,7 @@ Class | Method | HTTP request | Description
 *CurrenciesApi* | [**burnCurrency**](docs/Api/CurrenciesApi.md#burncurrency) | **POST** /v1/currencies/{currencyId}/burns | Burn currency
 *CurrenciesApi* | [**createCurrency**](docs/Api/CurrenciesApi.md#createcurrency) | **POST** /v1/currencies | Create currency
 *CurrenciesApi* | [**getCurrencies**](docs/Api/CurrenciesApi.md#getcurrencies) | **GET** /v1/currencies | Get currencies
-*CurrenciesApi* | [**getCurrencyBalances**](docs/Api/CurrenciesApi.md#getcurrencybalances) | **GET** /v1/currencies/{currencyId}/balances | Get currency balance
+*CurrenciesApi* | [**getCurrencyBalance**](docs/Api/CurrenciesApi.md#getcurrencybalance) | **GET** /v1/currencies/{currencyId}/balances | Get currency balance
 *CurrenciesApi* | [**getCurrencyFees**](docs/Api/CurrenciesApi.md#getcurrencyfees) | **GET** /v1/currencies/{currencyId}/fees | Get currency fees
 *CurrenciesApi* | [**mintCurrency**](docs/Api/CurrenciesApi.md#mintcurrency) | **POST** /v1/currencies/{currencyId}/mints | Mint currency
 *CurrenciesApi* | [**setCurrencyFees**](docs/Api/CurrenciesApi.md#setcurrencyfees) | **POST** /v1/currencies/{currencyId}/fees | Set currency fees
@@ -90,6 +90,24 @@ Class | Method | HTTP request | Description
 *GamesApi* | [**authGame**](docs/Api/GamesApi.md#authgame) | **GET** /v1/games | Authenticate game
 *GamesApi* | [**createGame**](docs/Api/GamesApi.md#creategame) | **POST** /v1/games | Create game
 *GamesApi* | [**updateGame**](docs/Api/GamesApi.md#updategame) | **PATCH** /v1/games/{gameId} | Update game
+*ItemsApi* | [**batchMintCollectionItems**](docs/Api/ItemsApi.md#batchmintcollectionitems) | **POST** /v1/collections/{collectionId}/batchMints | Batch mint collection items
+*ItemsApi* | [**batchTransferCollectionItems**](docs/Api/ItemsApi.md#batchtransfercollectionitems) | **POST** /v1/collections/{collectionId}/batchTransfers | Batch transfer collection items
+*ItemsApi* | [**burnCollectionItem**](docs/Api/ItemsApi.md#burncollectionitem) | **POST** /v1/collections/{collectionId}/items/{collectionItemId}/burns | Burn collection item
+*ItemsApi* | [**createCollection**](docs/Api/ItemsApi.md#createcollection) | **POST** /v1/collections | Create collection
+*ItemsApi* | [**createCollectionItem**](docs/Api/ItemsApi.md#createcollectionitem) | **POST** /v1/collections/{collectionId}/items | Create collection item
+*ItemsApi* | [**getCollectionApproval**](docs/Api/ItemsApi.md#getcollectionapproval) | **GET** /v1/collections/{collectionId}/approvals | Get collection approval
+*ItemsApi* | [**getCollectionItem**](docs/Api/ItemsApi.md#getcollectionitem) | **GET** /v1/collections/{collectionId}/items/{collectionItemId} | Get collection item
+*ItemsApi* | [**getCollectionItemBalance**](docs/Api/ItemsApi.md#getcollectionitembalance) | **GET** /v1/collections/{collectionId}/items/{collectionItemId}/balances | Get collection item balance
+*ItemsApi* | [**getCollectionItemBalances**](docs/Api/ItemsApi.md#getcollectionitembalances) | **GET** /v1/collections/{collectionId}/balances | Get collection item balances
+*ItemsApi* | [**getCollectionItemSupplies**](docs/Api/ItemsApi.md#getcollectionitemsupplies) | **GET** /v1/collections/{collectionId}/supplies | Get collection item supplies
+*ItemsApi* | [**getCollectionItemSupply**](docs/Api/ItemsApi.md#getcollectionitemsupply) | **GET** /v1/collections/{collectionId}/items/{collectionItemId}/supplies | Get collection item supply
+*ItemsApi* | [**getCollectionItemTimelock**](docs/Api/ItemsApi.md#getcollectionitemtimelock) | **GET** /v1/collections/{collectionId}/items/{collectionItemId}/timelocks | Get collection item timelock
+*ItemsApi* | [**getCollectionItems**](docs/Api/ItemsApi.md#getcollectionitems) | **GET** /v1/collections/{collectionId}/items | Get collection items
+*ItemsApi* | [**getCollections**](docs/Api/ItemsApi.md#getcollections) | **GET** /v1/collections | Get collections
+*ItemsApi* | [**mintCollectionItem**](docs/Api/ItemsApi.md#mintcollectionitem) | **POST** /v1/collections/{collectionId}/items/{collectionItemId}/mints | Mint collection item
+*ItemsApi* | [**setCollectionApproval**](docs/Api/ItemsApi.md#setcollectionapproval) | **POST** /v1/collections/{collectionId}/approvals | Set collection approval
+*ItemsApi* | [**setCollectionItemTimelock**](docs/Api/ItemsApi.md#setcollectionitemtimelock) | **POST** /v1/collections/{collectionId}/items/{collectionItemId}/timelocks | Set collection item timelock
+*ItemsApi* | [**transferCollectionItem**](docs/Api/ItemsApi.md#transfercollectionitem) | **POST** /v1/collections/{collectionId}/items/{collectionItemId}/transfers | Transfer collection item
 *PlayersApi* | [**authPlayer**](docs/Api/PlayersApi.md#authplayer) | **GET** /v1/players | Authenticate player
 *PlayersApi* | [**createPlayer**](docs/Api/PlayersApi.md#createplayer) | **POST** /v1/players | Create player
 *PlayersApi* | [**updatePlayer**](docs/Api/PlayersApi.md#updateplayer) | **PATCH** /v1/players/{playerId} | Update player
@@ -103,26 +121,41 @@ Class | Method | HTTP request | Description
 - [AuthGame200ResponseAllOf](docs/Model/AuthGame200ResponseAllOf.md)
 - [AuthGame200ResponseAllOf1](docs/Model/AuthGame200ResponseAllOf1.md)
 - [AuthPlayer200Response](docs/Model/AuthPlayer200Response.md)
+- [BatchMintCollectionItemsRequest](docs/Model/BatchMintCollectionItemsRequest.md)
+- [BatchTransferCollectionItemsRequest](docs/Model/BatchTransferCollectionItemsRequest.md)
 - [BatchTransferCurrencyRequest](docs/Model/BatchTransferCurrencyRequest.md)
+- [BurnCollectionItemRequest](docs/Model/BurnCollectionItemRequest.md)
 - [BurnCurrencyRequest](docs/Model/BurnCurrencyRequest.md)
+- [CollectionModel](docs/Model/CollectionModel.md)
 - [ContractModel](docs/Model/ContractModel.md)
+- [CreateCollection200Response](docs/Model/CreateCollection200Response.md)
+- [CreateCollection200ResponseAllOf](docs/Model/CreateCollection200ResponseAllOf.md)
+- [CreateCollection200ResponseAllOfContract](docs/Model/CreateCollection200ResponseAllOfContract.md)
+- [CreateCollection200ResponseAllOfContractAllOf](docs/Model/CreateCollection200ResponseAllOfContractAllOf.md)
+- [CreateCollectionItemRequest](docs/Model/CreateCollectionItemRequest.md)
+- [CreateCollectionItemRequestAttributesInner](docs/Model/CreateCollectionItemRequestAttributesInner.md)
+- [CreateCollectionItemRequestAttributesInnerValue](docs/Model/CreateCollectionItemRequestAttributesInnerValue.md)
+- [CreateCollectionRequest](docs/Model/CreateCollectionRequest.md)
 - [CreateContractRequest](docs/Model/CreateContractRequest.md)
 - [CreateCurrency200Response](docs/Model/CreateCurrency200Response.md)
-- [CreateCurrency200ResponseAllOf](docs/Model/CreateCurrency200ResponseAllOf.md)
-- [CreateCurrency200ResponseAllOfContract](docs/Model/CreateCurrency200ResponseAllOfContract.md)
-- [CreateCurrency200ResponseAllOfContractAllOf](docs/Model/CreateCurrency200ResponseAllOfContractAllOf.md)
 - [CreateCurrencyRequest](docs/Model/CreateCurrencyRequest.md)
 - [CreateGameRequest](docs/Model/CreateGameRequest.md)
 - [CreatePlayerRequest](docs/Model/CreatePlayerRequest.md)
 - [CurrencyModel](docs/Model/CurrencyModel.md)
 - [GameModel](docs/Model/GameModel.md)
+- [GetCollections200ResponseInner](docs/Model/GetCollections200ResponseInner.md)
+- [GetCollections200ResponseInnerAllOf](docs/Model/GetCollections200ResponseInnerAllOf.md)
 - [GetCurrencies200ResponseInner](docs/Model/GetCurrencies200ResponseInner.md)
 - [GetCurrencies200ResponseInnerAllOf](docs/Model/GetCurrencies200ResponseInnerAllOf.md)
 - [GetCurrencyFees200Response](docs/Model/GetCurrencyFees200Response.md)
+- [MintCollectionItemRequest](docs/Model/MintCollectionItemRequest.md)
 - [MintCurrencyRequest](docs/Model/MintCurrencyRequest.md)
 - [PlayerModel](docs/Model/PlayerModel.md)
+- [SetCollectionApprovalRequest](docs/Model/SetCollectionApprovalRequest.md)
+- [SetCollectionItemTimelockRequest](docs/Model/SetCollectionItemTimelockRequest.md)
 - [SetCurrencyFeesRequest](docs/Model/SetCurrencyFeesRequest.md)
 - [TransactionModel](docs/Model/TransactionModel.md)
+- [TransferCollectionItemRequest](docs/Model/TransferCollectionItemRequest.md)
 - [TransferCurrencyRequest](docs/Model/TransferCurrencyRequest.md)
 - [UpdateGameRequest](docs/Model/UpdateGameRequest.md)
 - [UpdatePlayerRequest](docs/Model/UpdatePlayerRequest.md)
@@ -152,5 +185,5 @@ metafabproject@gmail.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.0.0`
+- API version: `1.1.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

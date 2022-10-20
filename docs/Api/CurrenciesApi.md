@@ -8,7 +8,7 @@ All URIs are relative to https://api.trymetafab.com, except if the operation def
 | [**burnCurrency()**](CurrenciesApi.md#burnCurrency) | **POST** /v1/currencies/{currencyId}/burns | Burn currency |
 | [**createCurrency()**](CurrenciesApi.md#createCurrency) | **POST** /v1/currencies | Create currency |
 | [**getCurrencies()**](CurrenciesApi.md#getCurrencies) | **GET** /v1/currencies | Get currencies |
-| [**getCurrencyBalances()**](CurrenciesApi.md#getCurrencyBalances) | **GET** /v1/currencies/{currencyId}/balances | Get currency balance |
+| [**getCurrencyBalance()**](CurrenciesApi.md#getCurrencyBalance) | **GET** /v1/currencies/{currencyId}/balances | Get currency balance |
 | [**getCurrencyFees()**](CurrenciesApi.md#getCurrencyFees) | **GET** /v1/currencies/{currencyId}/fees | Get currency fees |
 | [**mintCurrency()**](CurrenciesApi.md#mintCurrency) | **POST** /v1/currencies/{currencyId}/mints | Mint currency |
 | [**setCurrencyFees()**](CurrenciesApi.md#setCurrencyFees) | **POST** /v1/currencies/{currencyId}/fees | Set currency fees |
@@ -23,7 +23,7 @@ batchTransferCurrency($currency_id, $x_authorization, $x_password, $batch_transf
 
 Batch transfer currency
 
-Transfers multiple amounts of currency to multiple provided wallet addresses or wallet addresses associated with the provided walletIds. You may also provide a combination of addresses and walletIds in one request, the proper receipients will be automatically determined, with `addresses` getting `amounts` order priority first. Optional references may be included for the transfer. References are useful for identifying transfers intended to pay for items, trades, services and more.
+Transfers multiple amounts of currency to multiple provided wallet addresses or wallet addresses associated with the provided walletIds. You may also provide a combination of addresses and walletIds in one request, the proper receipients will be automatically determined, with `addresses` getting `amounts` order priority first.  Optional references may be included for the transfer. References are useful for identifying transfers intended to pay for items, trades, services and more.
 
 ### Example
 
@@ -255,10 +255,10 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getCurrencyBalances()`
+## `getCurrencyBalance()`
 
 ```php
-getCurrencyBalances($currency_id, $address, $wallet_id): float
+getCurrencyBalance($currency_id, $address, $wallet_id): float
 ```
 
 Get currency balance
@@ -283,10 +283,10 @@ $address = 0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D; // string | A valid EVM b
 $wallet_id = 'wallet_id_example'; // string | Any wallet id within the MetaFab ecosystem.
 
 try {
-    $result = $apiInstance->getCurrencyBalances($currency_id, $address, $wallet_id);
+    $result = $apiInstance->getCurrencyBalance($currency_id, $address, $wallet_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CurrenciesApi->getCurrencyBalances: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CurrenciesApi->getCurrencyBalance: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -379,7 +379,7 @@ mintCurrency($currency_id, $x_authorization, $x_password, $mint_currency_request
 
 Mint currency
 
-Creates (mints) the provided amount of currency  to the provided wallet address or wallet address associated with the provided walletId.
+Creates (mints) the provided amount of currency to the provided wallet address or wallet address associated with the provided walletId.
 
 ### Example
 
