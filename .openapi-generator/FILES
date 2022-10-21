@@ -27,7 +27,6 @@ docs/Model/CreateCollection200ResponseAllOfContract.md
 docs/Model/CreateCollection200ResponseAllOfContractAllOf.md
 docs/Model/CreateCollectionItemRequest.md
 docs/Model/CreateCollectionItemRequestAttributesInner.md
-docs/Model/CreateCollectionItemRequestAttributesInnerValue.md
 docs/Model/CreateCollectionRequest.md
 docs/Model/CreateContractRequest.md
 docs/Model/CreateCurrency200Response.md
@@ -79,7 +78,6 @@ lib/Model/CreateCollection200ResponseAllOfContract.php
 lib/Model/CreateCollection200ResponseAllOfContractAllOf.php
 lib/Model/CreateCollectionItemRequest.php
 lib/Model/CreateCollectionItemRequestAttributesInner.php
-lib/Model/CreateCollectionItemRequestAttributesInnerValue.php
 lib/Model/CreateCollectionRequest.php
 lib/Model/CreateContractRequest.php
 lib/Model/CreateCurrency200Response.php
