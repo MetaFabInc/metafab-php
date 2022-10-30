@@ -17,8 +17,11 @@ All URIs are relative to https://api.trymetafab.com, except if the operation def
 | [**getCollectionItemSupply()**](ItemsApi.md#getCollectionItemSupply) | **GET** /v1/collections/{collectionId}/items/{collectionItemId}/supplies | Get collection item supply |
 | [**getCollectionItemTimelock()**](ItemsApi.md#getCollectionItemTimelock) | **GET** /v1/collections/{collectionId}/items/{collectionItemId}/timelocks | Get collection item timelock |
 | [**getCollectionItems()**](ItemsApi.md#getCollectionItems) | **GET** /v1/collections/{collectionId}/items | Get collection items |
+| [**getCollectionRole()**](ItemsApi.md#getCollectionRole) | **GET** /v1/collections/{collectionId}/roles | Get collection role |
 | [**getCollections()**](ItemsApi.md#getCollections) | **GET** /v1/collections | Get collections |
+| [**grantCollectionRole()**](ItemsApi.md#grantCollectionRole) | **POST** /v1/collections/{collectionId}/roles | Grant collection role |
 | [**mintCollectionItem()**](ItemsApi.md#mintCollectionItem) | **POST** /v1/collections/{collectionId}/items/{collectionItemId}/mints | Mint collection item |
+| [**revokeCollectionRole()**](ItemsApi.md#revokeCollectionRole) | **DELETE** /v1/collections/{collectionId}/roles | Revoke collection role |
 | [**setCollectionApproval()**](ItemsApi.md#setCollectionApproval) | **POST** /v1/collections/{collectionId}/approvals | Set collection approval |
 | [**setCollectionItemTimelock()**](ItemsApi.md#setCollectionItemTimelock) | **POST** /v1/collections/{collectionId}/items/{collectionItemId}/timelocks | Set collection item timelock |
 | [**transferCollectionItem()**](ItemsApi.md#transferCollectionItem) | **POST** /v1/collections/{collectionId}/items/{collectionItemId}/transfers | Transfer collection item |
@@ -280,7 +283,7 @@ createCollectionItem($collection_id, $x_authorization, $x_password, $create_coll
 
 Create collection item
 
-Creates a new item type. Item type creation associates all of the relevant item data to a specific itemId. Such as item name, image, description, attributes, any arbitrary data such as 2D or 3D model resolver URLs, and more. It is recommended, but not required, that you create a new item type through this endpoint before minting any quantity of the related itemId.  Item type data is uploaded to, and resolved through IPFS for decentralized persistence. Any itemId provided will have its existing item type overriden if it already exists.
+Creates a new item type. Item type creation associates all of the relevant item data to a specific itemId. Such as item name, image, description, attributes, any arbitrary data such as 2D or 3D model resolver URLs, and more. It is recommended, but not required, that you create a new item type through this endpoint before minting any quantity of the related itemId.  Any itemId provided will have its existing item type overriden if it already exists.  Item type data is uploaded to, and resolved through IPFS for decentralized persistence.
 
 ### Example
 
@@ -337,7 +340,7 @@ No authorization required
 ## `getCollectionApproval()`
 
 ```php
-getCollectionApproval($collection_id, $operator_address, $address, $wallet_id): float
+getCollectionApproval($collection_id, $operator_address, $address, $wallet_id): bool
 ```
 
 Get collection approval
@@ -381,7 +384,7 @@ try {
 
 ### Return type
 
-**float**
+**bool**
 
 ### Authorization
 
@@ -760,7 +763,7 @@ getCollectionItems($collection_id): object[]
 
 Get collection items
 
-Returns all collection items as an array of metadata objects.
+Returns all collection items as an array of metadata objects.  Please note that ONLY items that have had at least 1 quantity minted will be returned. If you've created an item that has not been minted yet, it will not be returned in the array response.
 
 ### Example
 
@@ -794,6 +797,68 @@ try {
 ### Return type
 
 **object[]**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getCollectionRole()`
+
+```php
+getCollectionRole($collection_id, $role, $address, $wallet_id): bool
+```
+
+Get collection role
+
+Returns a boolean (true/false) representing if the provided role for this collection has been granted to the provided address or address associated with the provided walletId.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new MetaFab\Api\ItemsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$role = minter; // string | A valid MetaFab role or bytes string representing a role, such as `0xc9eb32e43bf5ecbceacf00b32281dfc5d6d700a0db676ea26ccf938a385ac3b7`
+$address = 0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D; // string | A valid EVM based address. For example, `0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D`.
+$wallet_id = 'wallet_id_example'; // string | Any wallet id within the MetaFab ecosystem.
+
+try {
+    $result = $apiInstance->getCollectionRole($collection_id, $role, $address, $wallet_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemsApi->getCollectionRole: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **role** | **string**| A valid MetaFab role or bytes string representing a role, such as &#x60;0xc9eb32e43bf5ecbceacf00b32281dfc5d6d700a0db676ea26ccf938a385ac3b7&#x60; | |
+| **address** | **string**| A valid EVM based address. For example, &#x60;0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D&#x60;. | [optional] |
+| **wallet_id** | **string**| Any wallet id within the MetaFab ecosystem. | [optional] |
+
+### Return type
+
+**bool**
 
 ### Authorization
 
@@ -864,6 +929,68 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `grantCollectionRole()`
+
+```php
+grantCollectionRole($collection_id, $x_authorization, $x_password, $grant_collection_role_request): \MetaFab\Model\TransactionModel
+```
+
+Grant collection role
+
+Grants the provided role for the collection to the provided address or address associated with the provided walletId. Granted roles give different types of authority on behalf of the collection for specific players, addresses, or contracts to perform different types of permissioned collection operations.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new MetaFab\Api\ItemsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$x_authorization = ["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]; // string | The `secretKey` of a specific game or the `accessToken` of a specific player.
+$x_password = mySecurePassword; // string | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+$grant_collection_role_request = new \MetaFab\Model\GrantCollectionRoleRequest(); // \MetaFab\Model\GrantCollectionRoleRequest
+
+try {
+    $result = $apiInstance->grantCollectionRole($collection_id, $x_authorization, $x_password, $grant_collection_role_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemsApi->grantCollectionRole: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **x_authorization** | **string**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. | |
+| **x_password** | **string**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
+| **grant_collection_role_request** | [**\MetaFab\Model\GrantCollectionRoleRequest**](../Model/GrantCollectionRoleRequest.md)|  | |
+
+### Return type
+
+[**\MetaFab\Model\TransactionModel**](../Model/TransactionModel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `mintCollectionItem()`
 
 ```php
@@ -910,6 +1037,68 @@ try {
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
 | **x_password** | **string**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
 | **mint_collection_item_request** | [**\MetaFab\Model\MintCollectionItemRequest**](../Model/MintCollectionItemRequest.md)|  | |
+
+### Return type
+
+[**\MetaFab\Model\TransactionModel**](../Model/TransactionModel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `revokeCollectionRole()`
+
+```php
+revokeCollectionRole($collection_id, $x_authorization, $x_password, $revoke_collection_role_request): \MetaFab\Model\TransactionModel
+```
+
+Revoke collection role
+
+Revokes the provided role for the collection to the provided address or address associated with the provided walletId.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new MetaFab\Api\ItemsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$x_authorization = ["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]; // string | The `secretKey` of a specific game or the `accessToken` of a specific player.
+$x_password = mySecurePassword; // string | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+$revoke_collection_role_request = new \MetaFab\Model\RevokeCollectionRoleRequest(); // \MetaFab\Model\RevokeCollectionRoleRequest
+
+try {
+    $result = $apiInstance->revokeCollectionRole($collection_id, $x_authorization, $x_password, $revoke_collection_role_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemsApi->revokeCollectionRole: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **x_authorization** | **string**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. | |
+| **x_password** | **string**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
+| **revoke_collection_role_request** | [**\MetaFab\Model\RevokeCollectionRoleRequest**](../Model/RevokeCollectionRoleRequest.md)|  | |
 
 ### Return type
 

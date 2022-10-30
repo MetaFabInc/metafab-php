@@ -10,7 +10,10 @@ All URIs are relative to https://api.trymetafab.com, except if the operation def
 | [**getCurrencies()**](CurrenciesApi.md#getCurrencies) | **GET** /v1/currencies | Get currencies |
 | [**getCurrencyBalance()**](CurrenciesApi.md#getCurrencyBalance) | **GET** /v1/currencies/{currencyId}/balances | Get currency balance |
 | [**getCurrencyFees()**](CurrenciesApi.md#getCurrencyFees) | **GET** /v1/currencies/{currencyId}/fees | Get currency fees |
+| [**getCurrencyRole()**](CurrenciesApi.md#getCurrencyRole) | **GET** /v1/currencies/{currencyId}/roles | Get currency role |
+| [**grantCurrencyRole()**](CurrenciesApi.md#grantCurrencyRole) | **POST** /v1/currencies/{currencyId}/roles | Grant currency role |
 | [**mintCurrency()**](CurrenciesApi.md#mintCurrency) | **POST** /v1/currencies/{currencyId}/mints | Mint currency |
+| [**revokeCurrencyRole()**](CurrenciesApi.md#revokeCurrencyRole) | **DELETE** /v1/currencies/{currencyId}/roles | Revoke currency role |
 | [**setCurrencyFees()**](CurrenciesApi.md#setCurrencyFees) | **POST** /v1/currencies/{currencyId}/fees | Set currency fees |
 | [**transferCurrency()**](CurrenciesApi.md#transferCurrency) | **POST** /v1/currencies/{currencyId}/transfers | Transfer currency |
 
@@ -371,6 +374,130 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getCurrencyRole()`
+
+```php
+getCurrencyRole($currency_id, $role, $address, $wallet_id): bool
+```
+
+Get currency role
+
+Returns a boolean (true/false) representing if the provided role for this currency has been granted to the provided address or address associated with the provided walletId.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new MetaFab\Api\CurrenciesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$currency_id = 'currency_id_example'; // string | Any currency id within the MetaFab ecosystem.
+$role = minter; // string | A valid MetaFab role or bytes string representing a role, such as `0xc9eb32e43bf5ecbceacf00b32281dfc5d6d700a0db676ea26ccf938a385ac3b7`
+$address = 0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D; // string | A valid EVM based address. For example, `0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D`.
+$wallet_id = 'wallet_id_example'; // string | Any wallet id within the MetaFab ecosystem.
+
+try {
+    $result = $apiInstance->getCurrencyRole($currency_id, $role, $address, $wallet_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CurrenciesApi->getCurrencyRole: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **currency_id** | **string**| Any currency id within the MetaFab ecosystem. | |
+| **role** | **string**| A valid MetaFab role or bytes string representing a role, such as &#x60;0xc9eb32e43bf5ecbceacf00b32281dfc5d6d700a0db676ea26ccf938a385ac3b7&#x60; | |
+| **address** | **string**| A valid EVM based address. For example, &#x60;0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D&#x60;. | [optional] |
+| **wallet_id** | **string**| Any wallet id within the MetaFab ecosystem. | [optional] |
+
+### Return type
+
+**bool**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `grantCurrencyRole()`
+
+```php
+grantCurrencyRole($currency_id, $x_authorization, $x_password, $grant_currency_role_request): \MetaFab\Model\TransactionModel
+```
+
+Grant currency role
+
+Grants the provided role for the currency to the provided address or address associated with the provided walletId. Granted roles give different types of authority on behalf of the currency for specific players, addresses, or contracts to perform different types of permissioned currency operations.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new MetaFab\Api\CurrenciesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$currency_id = 'currency_id_example'; // string | Any currency id within the MetaFab ecosystem.
+$x_authorization = ["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]; // string | The `secretKey` of a specific game or the `accessToken` of a specific player.
+$x_password = mySecurePassword; // string | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+$grant_currency_role_request = new \MetaFab\Model\GrantCurrencyRoleRequest(); // \MetaFab\Model\GrantCurrencyRoleRequest
+
+try {
+    $result = $apiInstance->grantCurrencyRole($currency_id, $x_authorization, $x_password, $grant_currency_role_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CurrenciesApi->grantCurrencyRole: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **currency_id** | **string**| Any currency id within the MetaFab ecosystem. | |
+| **x_authorization** | **string**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. | |
+| **x_password** | **string**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
+| **grant_currency_role_request** | [**\MetaFab\Model\GrantCurrencyRoleRequest**](../Model/GrantCurrencyRoleRequest.md)|  | |
+
+### Return type
+
+[**\MetaFab\Model\TransactionModel**](../Model/TransactionModel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `mintCurrency()`
 
 ```php
@@ -415,6 +542,68 @@ try {
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
 | **x_password** | **string**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
 | **mint_currency_request** | [**\MetaFab\Model\MintCurrencyRequest**](../Model/MintCurrencyRequest.md)|  | |
+
+### Return type
+
+[**\MetaFab\Model\TransactionModel**](../Model/TransactionModel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `revokeCurrencyRole()`
+
+```php
+revokeCurrencyRole($currency_id, $x_authorization, $x_password, $revoke_collection_role_request): \MetaFab\Model\TransactionModel
+```
+
+Revoke currency role
+
+Revokes the provided role for the currency to the provided address or address associated with the provided walletId.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new MetaFab\Api\CurrenciesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$currency_id = 'currency_id_example'; // string | Any currency id within the MetaFab ecosystem.
+$x_authorization = ["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]; // string | The `secretKey` of a specific game or the `accessToken` of a specific player.
+$x_password = mySecurePassword; // string | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+$revoke_collection_role_request = new \MetaFab\Model\RevokeCollectionRoleRequest(); // \MetaFab\Model\RevokeCollectionRoleRequest
+
+try {
+    $result = $apiInstance->revokeCurrencyRole($currency_id, $x_authorization, $x_password, $revoke_collection_role_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CurrenciesApi->revokeCurrencyRole: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **currency_id** | **string**| Any currency id within the MetaFab ecosystem. | |
+| **x_authorization** | **string**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. | |
+| **x_password** | **string**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
+| **revoke_collection_role_request** | [**\MetaFab\Model\RevokeCollectionRoleRequest**](../Model/RevokeCollectionRoleRequest.md)|  | |
 
 ### Return type
 

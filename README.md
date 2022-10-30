@@ -84,9 +84,20 @@ Class | Method | HTTP request | Description
 *CurrenciesApi* | [**getCurrencies**](docs/Api/CurrenciesApi.md#getcurrencies) | **GET** /v1/currencies | Get currencies
 *CurrenciesApi* | [**getCurrencyBalance**](docs/Api/CurrenciesApi.md#getcurrencybalance) | **GET** /v1/currencies/{currencyId}/balances | Get currency balance
 *CurrenciesApi* | [**getCurrencyFees**](docs/Api/CurrenciesApi.md#getcurrencyfees) | **GET** /v1/currencies/{currencyId}/fees | Get currency fees
+*CurrenciesApi* | [**getCurrencyRole**](docs/Api/CurrenciesApi.md#getcurrencyrole) | **GET** /v1/currencies/{currencyId}/roles | Get currency role
+*CurrenciesApi* | [**grantCurrencyRole**](docs/Api/CurrenciesApi.md#grantcurrencyrole) | **POST** /v1/currencies/{currencyId}/roles | Grant currency role
 *CurrenciesApi* | [**mintCurrency**](docs/Api/CurrenciesApi.md#mintcurrency) | **POST** /v1/currencies/{currencyId}/mints | Mint currency
+*CurrenciesApi* | [**revokeCurrencyRole**](docs/Api/CurrenciesApi.md#revokecurrencyrole) | **DELETE** /v1/currencies/{currencyId}/roles | Revoke currency role
 *CurrenciesApi* | [**setCurrencyFees**](docs/Api/CurrenciesApi.md#setcurrencyfees) | **POST** /v1/currencies/{currencyId}/fees | Set currency fees
 *CurrenciesApi* | [**transferCurrency**](docs/Api/CurrenciesApi.md#transfercurrency) | **POST** /v1/currencies/{currencyId}/transfers | Transfer currency
+*ExchangesApi* | [**createExchange**](docs/Api/ExchangesApi.md#createexchange) | **POST** /v1/exchanges | Create exchange
+*ExchangesApi* | [**getExchangeOffer**](docs/Api/ExchangesApi.md#getexchangeoffer) | **GET** /v1/exchanges/{exchangeId}/items/{exchangeOfferId} | Get exchange offer
+*ExchangesApi* | [**getExchangeOffers**](docs/Api/ExchangesApi.md#getexchangeoffers) | **GET** /v1/exchanges/{exchangeId}/offers | Get exchange offers
+*ExchangesApi* | [**getExchanges**](docs/Api/ExchangesApi.md#getexchanges) | **GET** /v1/exchanges | Get exchanges
+*ExchangesApi* | [**removeExchangeOffer**](docs/Api/ExchangesApi.md#removeexchangeoffer) | **DELETE** /v1/exchanges/{exchangeId}/offers/{exchangeOfferId} | Remove exchange offer
+*ExchangesApi* | [**setExchangeOffer**](docs/Api/ExchangesApi.md#setexchangeoffer) | **POST** /v1/exchanges/{exchangeId}/offers | Set exchange offer
+*ExchangesApi* | [**useExchangeOffer**](docs/Api/ExchangesApi.md#useexchangeoffer) | **POST** /v1/exchanges/{exchangeId}/offers/{exchangeOfferId}/uses | Use exchange offer
+*ExchangesApi* | [**withdrawFromExchange**](docs/Api/ExchangesApi.md#withdrawfromexchange) | **POST** /v1/exchanges/{exchangeId}/withdrawals | Withdraw from exchange
 *GamesApi* | [**authGame**](docs/Api/GamesApi.md#authgame) | **GET** /v1/games | Authenticate game
 *GamesApi* | [**createGame**](docs/Api/GamesApi.md#creategame) | **POST** /v1/games | Create game
 *GamesApi* | [**updateGame**](docs/Api/GamesApi.md#updategame) | **PATCH** /v1/games/{gameId} | Update game
@@ -103,8 +114,11 @@ Class | Method | HTTP request | Description
 *ItemsApi* | [**getCollectionItemSupply**](docs/Api/ItemsApi.md#getcollectionitemsupply) | **GET** /v1/collections/{collectionId}/items/{collectionItemId}/supplies | Get collection item supply
 *ItemsApi* | [**getCollectionItemTimelock**](docs/Api/ItemsApi.md#getcollectionitemtimelock) | **GET** /v1/collections/{collectionId}/items/{collectionItemId}/timelocks | Get collection item timelock
 *ItemsApi* | [**getCollectionItems**](docs/Api/ItemsApi.md#getcollectionitems) | **GET** /v1/collections/{collectionId}/items | Get collection items
+*ItemsApi* | [**getCollectionRole**](docs/Api/ItemsApi.md#getcollectionrole) | **GET** /v1/collections/{collectionId}/roles | Get collection role
 *ItemsApi* | [**getCollections**](docs/Api/ItemsApi.md#getcollections) | **GET** /v1/collections | Get collections
+*ItemsApi* | [**grantCollectionRole**](docs/Api/ItemsApi.md#grantcollectionrole) | **POST** /v1/collections/{collectionId}/roles | Grant collection role
 *ItemsApi* | [**mintCollectionItem**](docs/Api/ItemsApi.md#mintcollectionitem) | **POST** /v1/collections/{collectionId}/items/{collectionItemId}/mints | Mint collection item
+*ItemsApi* | [**revokeCollectionRole**](docs/Api/ItemsApi.md#revokecollectionrole) | **DELETE** /v1/collections/{collectionId}/roles | Revoke collection role
 *ItemsApi* | [**setCollectionApproval**](docs/Api/ItemsApi.md#setcollectionapproval) | **POST** /v1/collections/{collectionId}/approvals | Set collection approval
 *ItemsApi* | [**setCollectionItemTimelock**](docs/Api/ItemsApi.md#setcollectionitemtimelock) | **POST** /v1/collections/{collectionId}/items/{collectionItemId}/timelocks | Set collection item timelock
 *ItemsApi* | [**transferCollectionItem**](docs/Api/ItemsApi.md#transfercollectionitem) | **POST** /v1/collections/{collectionId}/items/{collectionItemId}/transfers | Transfer collection item
@@ -138,27 +152,37 @@ Class | Method | HTTP request | Description
 - [CreateContractRequest](docs/Model/CreateContractRequest.md)
 - [CreateCurrency200Response](docs/Model/CreateCurrency200Response.md)
 - [CreateCurrencyRequest](docs/Model/CreateCurrencyRequest.md)
+- [CreateExchange200Response](docs/Model/CreateExchange200Response.md)
+- [CreateExchangeRequest](docs/Model/CreateExchangeRequest.md)
 - [CreateGameRequest](docs/Model/CreateGameRequest.md)
 - [CreatePlayerRequest](docs/Model/CreatePlayerRequest.md)
 - [CurrencyModel](docs/Model/CurrencyModel.md)
+- [ExchangeModel](docs/Model/ExchangeModel.md)
+- [ExchangeOffer](docs/Model/ExchangeOffer.md)
 - [GameModel](docs/Model/GameModel.md)
 - [GetCollections200ResponseInner](docs/Model/GetCollections200ResponseInner.md)
 - [GetCollections200ResponseInnerAllOf](docs/Model/GetCollections200ResponseInnerAllOf.md)
 - [GetCurrencies200ResponseInner](docs/Model/GetCurrencies200ResponseInner.md)
 - [GetCurrencies200ResponseInnerAllOf](docs/Model/GetCurrencies200ResponseInnerAllOf.md)
 - [GetCurrencyFees200Response](docs/Model/GetCurrencyFees200Response.md)
+- [GetExchanges200ResponseInner](docs/Model/GetExchanges200ResponseInner.md)
+- [GrantCollectionRoleRequest](docs/Model/GrantCollectionRoleRequest.md)
+- [GrantCurrencyRoleRequest](docs/Model/GrantCurrencyRoleRequest.md)
 - [MintCollectionItemRequest](docs/Model/MintCollectionItemRequest.md)
 - [MintCurrencyRequest](docs/Model/MintCurrencyRequest.md)
 - [PlayerModel](docs/Model/PlayerModel.md)
+- [RevokeCollectionRoleRequest](docs/Model/RevokeCollectionRoleRequest.md)
 - [SetCollectionApprovalRequest](docs/Model/SetCollectionApprovalRequest.md)
 - [SetCollectionItemTimelockRequest](docs/Model/SetCollectionItemTimelockRequest.md)
 - [SetCurrencyFeesRequest](docs/Model/SetCurrencyFeesRequest.md)
+- [SetExchangeOfferRequest](docs/Model/SetExchangeOfferRequest.md)
 - [TransactionModel](docs/Model/TransactionModel.md)
 - [TransferCollectionItemRequest](docs/Model/TransferCollectionItemRequest.md)
 - [TransferCurrencyRequest](docs/Model/TransferCurrencyRequest.md)
 - [UpdateGameRequest](docs/Model/UpdateGameRequest.md)
 - [UpdatePlayerRequest](docs/Model/UpdatePlayerRequest.md)
 - [WalletModel](docs/Model/WalletModel.md)
+- [WithdrawFromExchangeRequest](docs/Model/WithdrawFromExchangeRequest.md)
 - [WriteContractRequest](docs/Model/WriteContractRequest.md)
 
 ## Authorization
@@ -184,5 +208,5 @@ metafabproject@gmail.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.1.3`
+- API version: `1.1.4`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`
