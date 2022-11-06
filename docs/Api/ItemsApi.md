@@ -402,7 +402,7 @@ No authorization required
 ## `getCollectionItem()`
 
 ```php
-getCollectionItem($collection_id, $collection_item_id): object[]
+getCollectionItem($collection_id, $collection_item_id): object
 ```
 
 Get collection item
@@ -442,7 +442,7 @@ try {
 
 ### Return type
 
-**object[]**
+**object**
 
 ### Authorization
 
