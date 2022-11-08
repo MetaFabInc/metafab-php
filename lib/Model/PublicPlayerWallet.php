@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdatePlayerRequest
+ * PublicPlayerWallet
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \MetaFab\ObjectSerializer;
 
 /**
- * UpdatePlayerRequest Class Doc Comment
+ * PublicPlayerWallet Class Doc Comment
  *
  * @category Class
  * @package  MetaFab
@@ -41,7 +41,7 @@ use \MetaFab\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UpdatePlayerRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class PublicPlayerWallet implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'updatePlayer_request';
+    protected static $openAPIModelName = 'PublicPlayer_wallet';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'current_password' => 'string',
-        'new_password' => 'string',
-        'reset_access_token' => 'bool'
+        'id' => 'string',
+        'address' => 'string'
     ];
 
     /**
@@ -71,9 +70,8 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'current_password' => 'password',
-        'new_password' => 'password',
-        'reset_access_token' => null
+        'id' => null,
+        'address' => null
     ];
 
     /**
@@ -82,9 +80,8 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'current_password' => false,
-		'new_password' => false,
-		'reset_access_token' => false
+        'id' => false,
+		'address' => false
     ];
 
     /**
@@ -163,9 +160,8 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'current_password' => 'currentPassword',
-        'new_password' => 'newPassword',
-        'reset_access_token' => 'resetAccessToken'
+        'id' => 'id',
+        'address' => 'address'
     ];
 
     /**
@@ -174,9 +170,8 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'current_password' => 'setCurrentPassword',
-        'new_password' => 'setNewPassword',
-        'reset_access_token' => 'setResetAccessToken'
+        'id' => 'setId',
+        'address' => 'setAddress'
     ];
 
     /**
@@ -185,9 +180,8 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'current_password' => 'getCurrentPassword',
-        'new_password' => 'getNewPassword',
-        'reset_access_token' => 'getResetAccessToken'
+        'id' => 'getId',
+        'address' => 'getAddress'
     ];
 
     /**
@@ -247,9 +241,8 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('current_password', $data ?? [], null);
-        $this->setIfExists('new_password', $data ?? [], null);
-        $this->setIfExists('reset_access_token', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('address', $data ?? [], null);
     }
 
     /**
@@ -295,88 +288,59 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets current_password
+     * Gets id
      *
      * @return string|null
      */
-    public function getCurrentPassword()
+    public function getId()
     {
-        return $this->container['current_password'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets current_password
+     * Sets id
      *
-     * @param string|null $current_password The player's current password. Must be provided if setting `newPassword`.
+     * @param string|null $id This field has not had a description added.
      *
      * @return self
      */
-    public function setCurrentPassword($current_password)
+    public function setId($id)
     {
 
-        if (is_null($current_password)) {
-            throw new \InvalidArgumentException('non-nullable current_password cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
 
-        $this->container['current_password'] = $current_password;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets new_password
+     * Gets address
      *
      * @return string|null
      */
-    public function getNewPassword()
+    public function getAddress()
     {
-        return $this->container['new_password'];
+        return $this->container['address'];
     }
 
     /**
-     * Sets new_password
+     * Sets address
      *
-     * @param string|null $new_password A new password. The player's old password will no longer be valid.
+     * @param string|null $address This field has not had a description added.
      *
      * @return self
      */
-    public function setNewPassword($new_password)
+    public function setAddress($address)
     {
 
-        if (is_null($new_password)) {
-            throw new \InvalidArgumentException('non-nullable new_password cannot be null');
+        if (is_null($address)) {
+            throw new \InvalidArgumentException('non-nullable address cannot be null');
         }
 
-        $this->container['new_password'] = $new_password;
-
-        return $this;
-    }
-
-    /**
-     * Gets reset_access_token
-     *
-     * @return bool|null
-     */
-    public function getResetAccessToken()
-    {
-        return $this->container['reset_access_token'];
-    }
-
-    /**
-     * Sets reset_access_token
-     *
-     * @param bool|null $reset_access_token Revokes the player's previous access token and returns a new one if true.
-     *
-     * @return self
-     */
-    public function setResetAccessToken($reset_access_token)
-    {
-
-        if (is_null($reset_access_token)) {
-            throw new \InvalidArgumentException('non-nullable reset_access_token cannot be null');
-        }
-
-        $this->container['reset_access_token'] = $reset_access_token;
+        $this->container['address'] = $address;
 
         return $this;
     }

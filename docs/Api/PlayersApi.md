@@ -4,8 +4,10 @@ All URIs are relative to https://api.trymetafab.com, except if the operation def
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**authPlayer()**](PlayersApi.md#authPlayer) | **GET** /v1/players | Authenticate player |
+| [**authPlayer()**](PlayersApi.md#authPlayer) | **GET** /v1/players/auth | Authenticate player |
 | [**createPlayer()**](PlayersApi.md#createPlayer) | **POST** /v1/players | Create player |
+| [**getPlayer()**](PlayersApi.md#getPlayer) | **GET** /v1/players/{playerId} | Get player |
+| [**getPlayers()**](PlayersApi.md#getPlayers) | **GET** /v1/players | Get players |
 | [**updatePlayer()**](PlayersApi.md#updatePlayer) | **PATCH** /v1/players/{playerId} | Update player |
 
 
@@ -123,6 +125,118 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getPlayer()`
+
+```php
+getPlayer($player_id): \MetaFab\Model\PublicPlayer
+```
+
+Get player
+
+Returns a player object for the provided player id.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new MetaFab\Api\PlayersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$player_id = 'player_id_example'; // string | Any player id within the MetaFab ecosystem.
+
+try {
+    $result = $apiInstance->getPlayer($player_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PlayersApi->getPlayer: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **player_id** | **string**| Any player id within the MetaFab ecosystem. | |
+
+### Return type
+
+[**\MetaFab\Model\PublicPlayer**](../Model/PublicPlayer.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getPlayers()`
+
+```php
+getPlayers($x_authorization): \MetaFab\Model\PublicPlayer[]
+```
+
+Get players
+
+Returns all players for the authenticated game as an array of player objects.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new MetaFab\Api\PlayersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$x_authorization = game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `secretKey` of the authenticating game.
+
+try {
+    $result = $apiInstance->getPlayers($x_authorization);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PlayersApi->getPlayers: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
+
+### Return type
+
+[**\MetaFab\Model\PublicPlayer[]**](../Model/PublicPlayer.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

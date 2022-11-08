@@ -51,6 +51,9 @@ docs/Model/GrantCurrencyRoleRequest.md
 docs/Model/MintCollectionItemRequest.md
 docs/Model/MintCurrencyRequest.md
 docs/Model/PlayerModel.md
+docs/Model/PublicGame.md
+docs/Model/PublicPlayer.md
+docs/Model/PublicPlayerWallet.md
 docs/Model/RevokeCollectionRoleRequest.md
 docs/Model/SetCollectionApprovalRequest.md
 docs/Model/SetCollectionItemTimelockRequest.md
@@ -114,6 +117,9 @@ lib/Model/MintCollectionItemRequest.php
 lib/Model/MintCurrencyRequest.php
 lib/Model/ModelInterface.php
 lib/Model/PlayerModel.php
+lib/Model/PublicGame.php
+lib/Model/PublicPlayer.php
+lib/Model/PublicPlayerWallet.php
 lib/Model/RevokeCollectionRoleRequest.php
 lib/Model/SetCollectionApprovalRequest.php
 lib/Model/SetCollectionItemTimelockRequest.php

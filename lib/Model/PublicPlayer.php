@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdatePlayerRequest
+ * PublicPlayer
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \MetaFab\ObjectSerializer;
 
 /**
- * UpdatePlayerRequest Class Doc Comment
+ * PublicPlayer Class Doc Comment
  *
  * @category Class
  * @package  MetaFab
@@ -41,7 +41,7 @@ use \MetaFab\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UpdatePlayerRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class PublicPlayer implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'updatePlayer_request';
+    protected static $openAPIModelName = 'PublicPlayer';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,13 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'current_password' => 'string',
-        'new_password' => 'string',
-        'reset_access_token' => 'bool'
+        'id' => 'string',
+        'game_id' => 'string',
+        'wallet_id' => 'string',
+        'username' => 'string',
+        'updated_at' => 'string',
+        'created_at' => 'string',
+        'wallet' => '\MetaFab\Model\PublicPlayerWallet'
     ];
 
     /**
@@ -71,9 +75,13 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'current_password' => 'password',
-        'new_password' => 'password',
-        'reset_access_token' => null
+        'id' => null,
+        'game_id' => null,
+        'wallet_id' => null,
+        'username' => null,
+        'updated_at' => null,
+        'created_at' => null,
+        'wallet' => null
     ];
 
     /**
@@ -82,9 +90,13 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'current_password' => false,
-		'new_password' => false,
-		'reset_access_token' => false
+        'id' => false,
+		'game_id' => false,
+		'wallet_id' => false,
+		'username' => false,
+		'updated_at' => false,
+		'created_at' => false,
+		'wallet' => false
     ];
 
     /**
@@ -163,9 +175,13 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'current_password' => 'currentPassword',
-        'new_password' => 'newPassword',
-        'reset_access_token' => 'resetAccessToken'
+        'id' => 'id',
+        'game_id' => 'gameId',
+        'wallet_id' => 'walletId',
+        'username' => 'username',
+        'updated_at' => 'updatedAt',
+        'created_at' => 'createdAt',
+        'wallet' => 'wallet'
     ];
 
     /**
@@ -174,9 +190,13 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'current_password' => 'setCurrentPassword',
-        'new_password' => 'setNewPassword',
-        'reset_access_token' => 'setResetAccessToken'
+        'id' => 'setId',
+        'game_id' => 'setGameId',
+        'wallet_id' => 'setWalletId',
+        'username' => 'setUsername',
+        'updated_at' => 'setUpdatedAt',
+        'created_at' => 'setCreatedAt',
+        'wallet' => 'setWallet'
     ];
 
     /**
@@ -185,9 +205,13 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'current_password' => 'getCurrentPassword',
-        'new_password' => 'getNewPassword',
-        'reset_access_token' => 'getResetAccessToken'
+        'id' => 'getId',
+        'game_id' => 'getGameId',
+        'wallet_id' => 'getWalletId',
+        'username' => 'getUsername',
+        'updated_at' => 'getUpdatedAt',
+        'created_at' => 'getCreatedAt',
+        'wallet' => 'getWallet'
     ];
 
     /**
@@ -247,9 +271,13 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('current_password', $data ?? [], null);
-        $this->setIfExists('new_password', $data ?? [], null);
-        $this->setIfExists('reset_access_token', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('game_id', $data ?? [], null);
+        $this->setIfExists('wallet_id', $data ?? [], null);
+        $this->setIfExists('username', $data ?? [], null);
+        $this->setIfExists('updated_at', $data ?? [], null);
+        $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('wallet', $data ?? [], null);
     }
 
     /**
@@ -295,88 +323,204 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets current_password
+     * Gets id
      *
      * @return string|null
      */
-    public function getCurrentPassword()
+    public function getId()
     {
-        return $this->container['current_password'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets current_password
+     * Sets id
      *
-     * @param string|null $current_password The player's current password. Must be provided if setting `newPassword`.
+     * @param string|null $id This field has not had a description added.
      *
      * @return self
      */
-    public function setCurrentPassword($current_password)
+    public function setId($id)
     {
 
-        if (is_null($current_password)) {
-            throw new \InvalidArgumentException('non-nullable current_password cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
 
-        $this->container['current_password'] = $current_password;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets new_password
+     * Gets game_id
      *
      * @return string|null
      */
-    public function getNewPassword()
+    public function getGameId()
     {
-        return $this->container['new_password'];
+        return $this->container['game_id'];
     }
 
     /**
-     * Sets new_password
+     * Sets game_id
      *
-     * @param string|null $new_password A new password. The player's old password will no longer be valid.
+     * @param string|null $game_id This field has not had a description added.
      *
      * @return self
      */
-    public function setNewPassword($new_password)
+    public function setGameId($game_id)
     {
 
-        if (is_null($new_password)) {
-            throw new \InvalidArgumentException('non-nullable new_password cannot be null');
+        if (is_null($game_id)) {
+            throw new \InvalidArgumentException('non-nullable game_id cannot be null');
         }
 
-        $this->container['new_password'] = $new_password;
+        $this->container['game_id'] = $game_id;
 
         return $this;
     }
 
     /**
-     * Gets reset_access_token
+     * Gets wallet_id
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getResetAccessToken()
+    public function getWalletId()
     {
-        return $this->container['reset_access_token'];
+        return $this->container['wallet_id'];
     }
 
     /**
-     * Sets reset_access_token
+     * Sets wallet_id
      *
-     * @param bool|null $reset_access_token Revokes the player's previous access token and returns a new one if true.
+     * @param string|null $wallet_id This field has not had a description added.
      *
      * @return self
      */
-    public function setResetAccessToken($reset_access_token)
+    public function setWalletId($wallet_id)
     {
 
-        if (is_null($reset_access_token)) {
-            throw new \InvalidArgumentException('non-nullable reset_access_token cannot be null');
+        if (is_null($wallet_id)) {
+            throw new \InvalidArgumentException('non-nullable wallet_id cannot be null');
         }
 
-        $this->container['reset_access_token'] = $reset_access_token;
+        $this->container['wallet_id'] = $wallet_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets username
+     *
+     * @return string|null
+     */
+    public function getUsername()
+    {
+        return $this->container['username'];
+    }
+
+    /**
+     * Sets username
+     *
+     * @param string|null $username This field has not had a description added.
+     *
+     * @return self
+     */
+    public function setUsername($username)
+    {
+
+        if (is_null($username)) {
+            throw new \InvalidArgumentException('non-nullable username cannot be null');
+        }
+
+        $this->container['username'] = $username;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return string|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param string|null $updated_at This field has not had a description added.
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+
+        if (is_null($updated_at)) {
+            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+        }
+
+        $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return string|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param string|null $created_at This field has not had a description added.
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+
+        if (is_null($created_at)) {
+            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+        }
+
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets wallet
+     *
+     * @return \MetaFab\Model\PublicPlayerWallet|null
+     */
+    public function getWallet()
+    {
+        return $this->container['wallet'];
+    }
+
+    /**
+     * Sets wallet
+     *
+     * @param \MetaFab\Model\PublicPlayerWallet|null $wallet wallet
+     *
+     * @return self
+     */
+    public function setWallet($wallet)
+    {
+
+        if (is_null($wallet)) {
+            throw new \InvalidArgumentException('non-nullable wallet cannot be null');
+        }
+
+        $this->container['wallet'] = $wallet;
 
         return $this;
     }
