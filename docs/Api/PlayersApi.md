@@ -7,7 +7,9 @@ All URIs are relative to https://api.trymetafab.com, except if the operation def
 | [**authPlayer()**](PlayersApi.md#authPlayer) | **GET** /v1/players/auth | Authenticate player |
 | [**createPlayer()**](PlayersApi.md#createPlayer) | **POST** /v1/players | Create player |
 | [**getPlayer()**](PlayersApi.md#getPlayer) | **GET** /v1/players/{playerId} | Get player |
+| [**getPlayerData()**](PlayersApi.md#getPlayerData) | **GET** /v1/players/{playerId}/data | Get player data |
 | [**getPlayers()**](PlayersApi.md#getPlayers) | **GET** /v1/players | Get players |
+| [**setPlayerData()**](PlayersApi.md#setPlayerData) | **POST** /v1/players/{playerId}/data | Set player data |
 | [**updatePlayer()**](PlayersApi.md#updatePlayer) | **PATCH** /v1/players/{playerId} | Update player |
 
 
@@ -187,6 +189,62 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getPlayerData()`
+
+```php
+getPlayerData($player_id): \MetaFab\Model\GetPlayerData200Response
+```
+
+Get player data
+
+Returns the latest public and protected data as an object for the provided playerId.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new MetaFab\Api\PlayersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$player_id = 'player_id_example'; // string | Any player id within the MetaFab ecosystem.
+
+try {
+    $result = $apiInstance->getPlayerData($player_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PlayersApi->getPlayerData: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **player_id** | **string**| Any player id within the MetaFab ecosystem. | |
+
+### Return type
+
+[**\MetaFab\Model\GetPlayerData200Response**](../Model/GetPlayerData200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getPlayers()`
 
 ```php
@@ -237,6 +295,66 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `setPlayerData()`
+
+```php
+setPlayerData($player_id, $x_authorization, $set_player_data_request): \MetaFab\Model\GetPlayerData200Response
+```
+
+Set player data
+
+Creates or updates public and/or protected data for the provided playerId. Data updates are performed using deep merging. This means that when you update any top level or nested properties specific to player public or protected data, you only need to include the properties you are making changes to. Any existing properties not included in request body arguments will be retained on the player data object.  Please note, When writing an array type for a player, arrays do not follow the deep merge approach. If you add or remove an item from an array, the entire array must be passed as an argument when updating the related property for player public or protected data.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new MetaFab\Api\PlayersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$player_id = 'player_id_example'; // string | Any player id within the MetaFab ecosystem.
+$x_authorization = ["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]; // string | The `secretKey` of a specific game or the `accessToken` of a specific player.
+$set_player_data_request = new \MetaFab\Model\SetPlayerDataRequest(); // \MetaFab\Model\SetPlayerDataRequest
+
+try {
+    $result = $apiInstance->setPlayerData($player_id, $x_authorization, $set_player_data_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PlayersApi->setPlayerData: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **player_id** | **string**| Any player id within the MetaFab ecosystem. | |
+| **x_authorization** | **string**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. | |
+| **set_player_data_request** | [**\MetaFab\Model\SetPlayerDataRequest**](../Model/SetPlayerDataRequest.md)|  | |
+
+### Return type
+
+[**\MetaFab\Model\GetPlayerData200Response**](../Model/GetPlayerData200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

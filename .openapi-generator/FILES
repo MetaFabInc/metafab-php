@@ -46,6 +46,7 @@ docs/Model/GetCurrencies200ResponseInner.md
 docs/Model/GetCurrencies200ResponseInnerAllOf.md
 docs/Model/GetCurrencyFees200Response.md
 docs/Model/GetExchanges200ResponseInner.md
+docs/Model/GetPlayerData200Response.md
 docs/Model/GrantCollectionRoleRequest.md
 docs/Model/GrantCurrencyRoleRequest.md
 docs/Model/MintCollectionItemRequest.md
@@ -59,6 +60,7 @@ docs/Model/SetCollectionApprovalRequest.md
 docs/Model/SetCollectionItemTimelockRequest.md
 docs/Model/SetCurrencyFeesRequest.md
 docs/Model/SetExchangeOfferRequest.md
+docs/Model/SetPlayerDataRequest.md
 docs/Model/TransactionModel.md
 docs/Model/TransferCollectionItemRequest.md
 docs/Model/TransferCurrencyRequest.md
@@ -111,6 +113,7 @@ lib/Model/GetCurrencies200ResponseInner.php
 lib/Model/GetCurrencies200ResponseInnerAllOf.php
 lib/Model/GetCurrencyFees200Response.php
 lib/Model/GetExchanges200ResponseInner.php
+lib/Model/GetPlayerData200Response.php
 lib/Model/GrantCollectionRoleRequest.php
 lib/Model/GrantCurrencyRoleRequest.php
 lib/Model/MintCollectionItemRequest.php
@@ -125,6 +128,7 @@ lib/Model/SetCollectionApprovalRequest.php
 lib/Model/SetCollectionItemTimelockRequest.php
 lib/Model/SetCurrencyFeesRequest.php
 lib/Model/SetExchangeOfferRequest.php
+lib/Model/SetPlayerDataRequest.php
 lib/Model/TransactionModel.php
 lib/Model/TransferCollectionItemRequest.php
 lib/Model/TransferCurrencyRequest.php

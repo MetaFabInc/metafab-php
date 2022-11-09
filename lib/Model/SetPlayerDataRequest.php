@@ -1,6 +1,6 @@
 <?php
 /**
- * ContractModel
+ * SetPlayerDataRequest
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \MetaFab\ObjectSerializer;
 
 /**
- * ContractModel Class Doc Comment
+ * SetPlayerDataRequest Class Doc Comment
  *
  * @category Class
  * @package  MetaFab
@@ -41,7 +41,7 @@ use \MetaFab\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ContractModel implements ModelInterface, ArrayAccess, \JsonSerializable
+class SetPlayerDataRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ContractModel implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ContractModel';
+    protected static $openAPIModelName = 'setPlayerData_request';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,8 @@ class ContractModel implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'game_id' => 'string',
-        'chain' => 'string',
-        'abi' => 'object',
-        'type' => 'string',
-        'address' => 'string',
-        'updated_at' => 'string',
-        'created_at' => 'string'
+        'protected_data' => 'object',
+        'public_data' => 'object'
     ];
 
     /**
@@ -76,14 +70,8 @@ class ContractModel implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'game_id' => null,
-        'chain' => null,
-        'abi' => null,
-        'type' => null,
-        'address' => null,
-        'updated_at' => null,
-        'created_at' => null
+        'protected_data' => null,
+        'public_data' => null
     ];
 
     /**
@@ -92,14 +80,8 @@ class ContractModel implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'game_id' => false,
-		'chain' => false,
-		'abi' => false,
-		'type' => false,
-		'address' => false,
-		'updated_at' => false,
-		'created_at' => false
+        'protected_data' => false,
+		'public_data' => false
     ];
 
     /**
@@ -178,14 +160,8 @@ class ContractModel implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'game_id' => 'gameId',
-        'chain' => 'chain',
-        'abi' => 'abi',
-        'type' => 'type',
-        'address' => 'address',
-        'updated_at' => 'updatedAt',
-        'created_at' => 'createdAt'
+        'protected_data' => 'protectedData',
+        'public_data' => 'publicData'
     ];
 
     /**
@@ -194,14 +170,8 @@ class ContractModel implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'game_id' => 'setGameId',
-        'chain' => 'setChain',
-        'abi' => 'setAbi',
-        'type' => 'setType',
-        'address' => 'setAddress',
-        'updated_at' => 'setUpdatedAt',
-        'created_at' => 'setCreatedAt'
+        'protected_data' => 'setProtectedData',
+        'public_data' => 'setPublicData'
     ];
 
     /**
@@ -210,14 +180,8 @@ class ContractModel implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'game_id' => 'getGameId',
-        'chain' => 'getChain',
-        'abi' => 'getAbi',
-        'type' => 'getType',
-        'address' => 'getAddress',
-        'updated_at' => 'getUpdatedAt',
-        'created_at' => 'getCreatedAt'
+        'protected_data' => 'getProtectedData',
+        'public_data' => 'getPublicData'
     ];
 
     /**
@@ -277,14 +241,8 @@ class ContractModel implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('game_id', $data ?? [], null);
-        $this->setIfExists('chain', $data ?? [], null);
-        $this->setIfExists('abi', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('address', $data ?? [], null);
-        $this->setIfExists('updated_at', $data ?? [], null);
-        $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('protected_data', $data ?? [], null);
+        $this->setIfExists('public_data', $data ?? [], null);
     }
 
     /**
@@ -330,233 +288,59 @@ class ContractModel implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id This field has not had a description added.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets game_id
-     *
-     * @return string|null
-     */
-    public function getGameId()
-    {
-        return $this->container['game_id'];
-    }
-
-    /**
-     * Sets game_id
-     *
-     * @param string|null $game_id This field has not had a description added.
-     *
-     * @return self
-     */
-    public function setGameId($game_id)
-    {
-
-        if (is_null($game_id)) {
-            throw new \InvalidArgumentException('non-nullable game_id cannot be null');
-        }
-
-        $this->container['game_id'] = $game_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets chain
-     *
-     * @return string|null
-     */
-    public function getChain()
-    {
-        return $this->container['chain'];
-    }
-
-    /**
-     * Sets chain
-     *
-     * @param string|null $chain This field has not had a description added.
-     *
-     * @return self
-     */
-    public function setChain($chain)
-    {
-
-        if (is_null($chain)) {
-            throw new \InvalidArgumentException('non-nullable chain cannot be null');
-        }
-
-        $this->container['chain'] = $chain;
-
-        return $this;
-    }
-
-    /**
-     * Gets abi
+     * Gets protected_data
      *
      * @return object|null
      */
-    public function getAbi()
+    public function getProtectedData()
     {
-        return $this->container['abi'];
+        return $this->container['protected_data'];
     }
 
     /**
-     * Sets abi
+     * Sets protected_data
      *
-     * @param object|null $abi This field has not had a description added.
+     * @param object|null $protected_data protectedData can only be set if `X-Authorization` includes credentials for the game the target player is a part of. Expects an arbitrary object allowed to contain any set of properties and nested data within those properties, including arrays.
      *
      * @return self
      */
-    public function setAbi($abi)
+    public function setProtectedData($protected_data)
     {
 
-        if (is_null($abi)) {
-            throw new \InvalidArgumentException('non-nullable abi cannot be null');
+        if (is_null($protected_data)) {
+            throw new \InvalidArgumentException('non-nullable protected_data cannot be null');
         }
 
-        $this->container['abi'] = $abi;
+        $this->container['protected_data'] = $protected_data;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets public_data
      *
-     * @return string|null
+     * @return object|null
      */
-    public function getType()
+    public function getPublicData()
     {
-        return $this->container['type'];
+        return $this->container['public_data'];
     }
 
     /**
-     * Sets type
+     * Sets public_data
      *
-     * @param string|null $type This field has not had a description added.
+     * @param object|null $public_data publicData can be set if `X-Authorization` includes credentials for the target player or game the player is a part of. Expects an arbitrary object allowed to contain any set of properties and nested data within those properties, including arrays.
      *
      * @return self
      */
-    public function setType($type)
+    public function setPublicData($public_data)
     {
 
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($public_data)) {
+            throw new \InvalidArgumentException('non-nullable public_data cannot be null');
         }
 
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets address
-     *
-     * @return string|null
-     */
-    public function getAddress()
-    {
-        return $this->container['address'];
-    }
-
-    /**
-     * Sets address
-     *
-     * @param string|null $address This field has not had a description added.
-     *
-     * @return self
-     */
-    public function setAddress($address)
-    {
-
-        if (is_null($address)) {
-            throw new \InvalidArgumentException('non-nullable address cannot be null');
-        }
-
-        $this->container['address'] = $address;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return string|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param string|null $updated_at This field has not had a description added.
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-
-        if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
-        }
-
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return string|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param string|null $created_at This field has not had a description added.
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-
-        $this->container['created_at'] = $created_at;
+        $this->container['public_data'] = $public_data;
 
         return $this;
     }
