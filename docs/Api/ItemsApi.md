@@ -460,7 +460,7 @@ No authorization required
 ## `getCollectionItemBalance()`
 
 ```php
-getCollectionItemBalance($collection_id, $collection_item_id, $address, $wallet_id): float
+getCollectionItemBalance($collection_id, $collection_item_id, $address, $wallet_id): int
 ```
 
 Get collection item balance
@@ -504,7 +504,7 @@ try {
 
 ### Return type
 
-**float**
+**int**
 
 ### Authorization
 
@@ -522,7 +522,7 @@ No authorization required
 ## `getCollectionItemBalances()`
 
 ```php
-getCollectionItemBalances($collection_id, $address, $wallet_id): array<string,float>
+getCollectionItemBalances($collection_id, $address, $wallet_id): array<string,int>
 ```
 
 Get collection item balances
@@ -564,7 +564,7 @@ try {
 
 ### Return type
 
-**array<string,float>**
+**array<string,int>**
 
 ### Authorization
 
@@ -582,7 +582,7 @@ No authorization required
 ## `getCollectionItemSupplies()`
 
 ```php
-getCollectionItemSupplies($collection_id): array<string,float>
+getCollectionItemSupplies($collection_id): array<string,int>
 ```
 
 Get collection item supplies
@@ -620,7 +620,7 @@ try {
 
 ### Return type
 
-**array<string,float>**
+**array<string,int>**
 
 ### Authorization
 
@@ -638,7 +638,7 @@ No authorization required
 ## `getCollectionItemSupply()`
 
 ```php
-getCollectionItemSupply($collection_id, $collection_item_id, $address, $wallet_id): float
+getCollectionItemSupply($collection_id, $collection_item_id, $address, $wallet_id): int
 ```
 
 Get collection item supply
@@ -682,7 +682,7 @@ try {
 
 ### Return type
 
-**float**
+**int**
 
 ### Authorization
 
@@ -700,7 +700,7 @@ No authorization required
 ## `getCollectionItemTimelock()`
 
 ```php
-getCollectionItemTimelock($collection_id, $collection_item_id): float
+getCollectionItemTimelock($collection_id, $collection_item_id): int
 ```
 
 Get collection item timelock
@@ -740,7 +740,7 @@ try {
 
 ### Return type
 
-**float**
+**int**
 
 ### Authorization
 

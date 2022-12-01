@@ -90,14 +90,6 @@ Class | Method | HTTP request | Description
 *CurrenciesApi* | [**revokeCurrencyRole**](docs/Api/CurrenciesApi.md#revokecurrencyrole) | **DELETE** /v1/currencies/{currencyId}/roles | Revoke currency role
 *CurrenciesApi* | [**setCurrencyFees**](docs/Api/CurrenciesApi.md#setcurrencyfees) | **POST** /v1/currencies/{currencyId}/fees | Set currency fees
 *CurrenciesApi* | [**transferCurrency**](docs/Api/CurrenciesApi.md#transfercurrency) | **POST** /v1/currencies/{currencyId}/transfers | Transfer currency
-*ExchangesApi* | [**createExchange**](docs/Api/ExchangesApi.md#createexchange) | **POST** /v1/exchanges | Create exchange
-*ExchangesApi* | [**getExchangeOffer**](docs/Api/ExchangesApi.md#getexchangeoffer) | **GET** /v1/exchanges/{exchangeId}/items/{exchangeOfferId} | Get exchange offer
-*ExchangesApi* | [**getExchangeOffers**](docs/Api/ExchangesApi.md#getexchangeoffers) | **GET** /v1/exchanges/{exchangeId}/offers | Get exchange offers
-*ExchangesApi* | [**getExchanges**](docs/Api/ExchangesApi.md#getexchanges) | **GET** /v1/exchanges | Get exchanges
-*ExchangesApi* | [**removeExchangeOffer**](docs/Api/ExchangesApi.md#removeexchangeoffer) | **DELETE** /v1/exchanges/{exchangeId}/offers/{exchangeOfferId} | Remove exchange offer
-*ExchangesApi* | [**setExchangeOffer**](docs/Api/ExchangesApi.md#setexchangeoffer) | **POST** /v1/exchanges/{exchangeId}/offers | Set exchange offer
-*ExchangesApi* | [**useExchangeOffer**](docs/Api/ExchangesApi.md#useexchangeoffer) | **POST** /v1/exchanges/{exchangeId}/offers/{exchangeOfferId}/uses | Use exchange offer
-*ExchangesApi* | [**withdrawFromExchange**](docs/Api/ExchangesApi.md#withdrawfromexchange) | **POST** /v1/exchanges/{exchangeId}/withdrawals | Withdraw from exchange
 *GamesApi* | [**authGame**](docs/Api/GamesApi.md#authgame) | **GET** /v1/games/auth | Authenticate game
 *GamesApi* | [**createGame**](docs/Api/GamesApi.md#creategame) | **POST** /v1/games | Create game
 *GamesApi* | [**getGame**](docs/Api/GamesApi.md#getgame) | **GET** /v1/games/{gameId} | Get game
@@ -123,6 +115,13 @@ Class | Method | HTTP request | Description
 *ItemsApi* | [**setCollectionApproval**](docs/Api/ItemsApi.md#setcollectionapproval) | **POST** /v1/collections/{collectionId}/approvals | Set collection approval
 *ItemsApi* | [**setCollectionItemTimelock**](docs/Api/ItemsApi.md#setcollectionitemtimelock) | **POST** /v1/collections/{collectionId}/items/{collectionItemId}/timelocks | Set collection item timelock
 *ItemsApi* | [**transferCollectionItem**](docs/Api/ItemsApi.md#transfercollectionitem) | **POST** /v1/collections/{collectionId}/items/{collectionItemId}/transfers | Transfer collection item
+*LootboxesApi* | [**createLootboxManager**](docs/Api/LootboxesApi.md#createlootboxmanager) | **POST** /v1/lootboxManagers | Create lootbox manager
+*LootboxesApi* | [**getLootboxManagerLootbox**](docs/Api/LootboxesApi.md#getlootboxmanagerlootbox) | **GET** /v1/lootboxManagers/{lootboxManagerId}/lootboxes/{lootboxManagerLootboxId} | Get lootbox manager lootbox
+*LootboxesApi* | [**getLootboxManagerLootboxes**](docs/Api/LootboxesApi.md#getlootboxmanagerlootboxes) | **GET** /v1/lootboxManagers/{lootboxManagerId}/lootboxes | Get lootbox manager lootboxes
+*LootboxesApi* | [**getLootboxManagers**](docs/Api/LootboxesApi.md#getlootboxmanagers) | **GET** /v1/lootboxManagers | Get lootbox managers
+*LootboxesApi* | [**openLootboxManagerLootbox**](docs/Api/LootboxesApi.md#openlootboxmanagerlootbox) | **POST** /v1/lootboxManagers/{lootboxManagerId}/lootboxes/{lootboxManagerLootboxId}/opens | Open lootbox manager lootbox
+*LootboxesApi* | [**removeLootboxManagerLootbox**](docs/Api/LootboxesApi.md#removelootboxmanagerlootbox) | **DELETE** /v1/lootboxManagers/{lootboxManagerId}/lootboxes/{lootboxManagerLootboxId} | Remove lootbox manager lootbox
+*LootboxesApi* | [**setLootboxManagerLootbox**](docs/Api/LootboxesApi.md#setlootboxmanagerlootbox) | **POST** /v1/lootboxManagers/{lootboxManagerId}/lootboxes | Set lootbox manager lootbox
 *PlayersApi* | [**authPlayer**](docs/Api/PlayersApi.md#authplayer) | **GET** /v1/players/auth | Authenticate player
 *PlayersApi* | [**createPlayer**](docs/Api/PlayersApi.md#createplayer) | **POST** /v1/players | Create player
 *PlayersApi* | [**getPlayer**](docs/Api/PlayersApi.md#getplayer) | **GET** /v1/players/{playerId} | Get player
@@ -130,6 +129,14 @@ Class | Method | HTTP request | Description
 *PlayersApi* | [**getPlayers**](docs/Api/PlayersApi.md#getplayers) | **GET** /v1/players | Get players
 *PlayersApi* | [**setPlayerData**](docs/Api/PlayersApi.md#setplayerdata) | **POST** /v1/players/{playerId}/data | Set player data
 *PlayersApi* | [**updatePlayer**](docs/Api/PlayersApi.md#updateplayer) | **PATCH** /v1/players/{playerId} | Update player
+*ShopsApi* | [**createShop**](docs/Api/ShopsApi.md#createshop) | **POST** /v1/shops | Create shop
+*ShopsApi* | [**getShopOffer**](docs/Api/ShopsApi.md#getshopoffer) | **GET** /v1/shops/{shopId}/items/{shopOfferId} | Get shop offer
+*ShopsApi* | [**getShopOffers**](docs/Api/ShopsApi.md#getshopoffers) | **GET** /v1/shops/{shopId}/offers | Get shop offers
+*ShopsApi* | [**getShops**](docs/Api/ShopsApi.md#getshops) | **GET** /v1/shops | Get shops
+*ShopsApi* | [**removeShopOffer**](docs/Api/ShopsApi.md#removeshopoffer) | **DELETE** /v1/shops/{shopId}/offers/{shopOfferId} | Remove shop offer
+*ShopsApi* | [**setShopOffer**](docs/Api/ShopsApi.md#setshopoffer) | **POST** /v1/shops/{shopId}/offers | Set shop offer
+*ShopsApi* | [**useShopOffer**](docs/Api/ShopsApi.md#useshopoffer) | **POST** /v1/shops/{shopId}/offers/{shopOfferId}/uses | Use shop offer
+*ShopsApi* | [**withdrawFromShop**](docs/Api/ShopsApi.md#withdrawfromshop) | **POST** /v1/shops/{shopId}/withdrawals | Withdraw from shop
 *TransactionsApi* | [**getTransaction**](docs/Api/TransactionsApi.md#gettransaction) | **GET** /v1/transactions/{transactionId} | Get transaction
 *WalletsApi* | [**getWalletBalances**](docs/Api/WalletsApi.md#getwalletbalances) | **GET** /v1/wallets/{walletId}/balances | Get wallet balances
 *WalletsApi* | [**getWalletTransactions**](docs/Api/WalletsApi.md#getwallettransactions) | **GET** /v1/wallets/{walletId}/transactions | Get wallet transactions
@@ -157,23 +164,25 @@ Class | Method | HTTP request | Description
 - [CreateContractRequest](docs/Model/CreateContractRequest.md)
 - [CreateCurrency200Response](docs/Model/CreateCurrency200Response.md)
 - [CreateCurrencyRequest](docs/Model/CreateCurrencyRequest.md)
-- [CreateExchange200Response](docs/Model/CreateExchange200Response.md)
-- [CreateExchangeRequest](docs/Model/CreateExchangeRequest.md)
 - [CreateGameRequest](docs/Model/CreateGameRequest.md)
+- [CreateLootboxManager200Response](docs/Model/CreateLootboxManager200Response.md)
+- [CreateLootboxManagerRequest](docs/Model/CreateLootboxManagerRequest.md)
 - [CreatePlayerRequest](docs/Model/CreatePlayerRequest.md)
+- [CreateShop200Response](docs/Model/CreateShop200Response.md)
+- [CreateShopRequest](docs/Model/CreateShopRequest.md)
 - [CurrencyModel](docs/Model/CurrencyModel.md)
-- [ExchangeModel](docs/Model/ExchangeModel.md)
-- [ExchangeOffer](docs/Model/ExchangeOffer.md)
 - [GameModel](docs/Model/GameModel.md)
 - [GetCollections200ResponseInner](docs/Model/GetCollections200ResponseInner.md)
 - [GetCollections200ResponseInnerAllOf](docs/Model/GetCollections200ResponseInnerAllOf.md)
 - [GetCurrencies200ResponseInner](docs/Model/GetCurrencies200ResponseInner.md)
-- [GetCurrencies200ResponseInnerAllOf](docs/Model/GetCurrencies200ResponseInnerAllOf.md)
 - [GetCurrencyFees200Response](docs/Model/GetCurrencyFees200Response.md)
-- [GetExchanges200ResponseInner](docs/Model/GetExchanges200ResponseInner.md)
+- [GetLootboxManagers200ResponseInner](docs/Model/GetLootboxManagers200ResponseInner.md)
 - [GetPlayerData200Response](docs/Model/GetPlayerData200Response.md)
+- [GetShops200ResponseInner](docs/Model/GetShops200ResponseInner.md)
 - [GrantCollectionRoleRequest](docs/Model/GrantCollectionRoleRequest.md)
 - [GrantCurrencyRoleRequest](docs/Model/GrantCurrencyRoleRequest.md)
+- [LootboxManagerLootbox](docs/Model/LootboxManagerLootbox.md)
+- [LootboxManagerModel](docs/Model/LootboxManagerModel.md)
 - [MintCollectionItemRequest](docs/Model/MintCollectionItemRequest.md)
 - [MintCurrencyRequest](docs/Model/MintCurrencyRequest.md)
 - [PlayerModel](docs/Model/PlayerModel.md)
@@ -184,16 +193,20 @@ Class | Method | HTTP request | Description
 - [SetCollectionApprovalRequest](docs/Model/SetCollectionApprovalRequest.md)
 - [SetCollectionItemTimelockRequest](docs/Model/SetCollectionItemTimelockRequest.md)
 - [SetCurrencyFeesRequest](docs/Model/SetCurrencyFeesRequest.md)
-- [SetExchangeOfferRequest](docs/Model/SetExchangeOfferRequest.md)
+- [SetLootboxManagerLootboxRequest](docs/Model/SetLootboxManagerLootboxRequest.md)
 - [SetPlayerDataRequest](docs/Model/SetPlayerDataRequest.md)
+- [SetShopOfferRequest](docs/Model/SetShopOfferRequest.md)
+- [ShopModel](docs/Model/ShopModel.md)
+- [ShopOffer](docs/Model/ShopOffer.md)
 - [TransactionModel](docs/Model/TransactionModel.md)
 - [TransferCollectionItemRequest](docs/Model/TransferCollectionItemRequest.md)
 - [TransferCurrencyRequest](docs/Model/TransferCurrencyRequest.md)
 - [UpdateGameRequest](docs/Model/UpdateGameRequest.md)
 - [UpdatePlayerRequest](docs/Model/UpdatePlayerRequest.md)
 - [WalletModel](docs/Model/WalletModel.md)
-- [WithdrawFromExchangeRequest](docs/Model/WithdrawFromExchangeRequest.md)
+- [WithdrawFromShopRequest](docs/Model/WithdrawFromShopRequest.md)
 - [WriteContractRequest](docs/Model/WriteContractRequest.md)
+- [WriteContractRequestArgsInner](docs/Model/WriteContractRequestArgsInner.md)
 
 ## Authorization
 
@@ -218,5 +231,5 @@ metafabproject@gmail.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.2.1`
+- API version: `1.3.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`
