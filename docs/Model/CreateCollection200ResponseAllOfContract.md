@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **abi** | **object** | This field has not had a description added. | [optional]
 **type** | **string** | This field has not had a description added. | [optional]
 **address** | **string** | This field has not had a description added. | [optional]
+**forwarder_address** | **string** | This field has not had a description added. | [optional]
 **updated_at** | **string** | This field has not had a description added. | [optional]
 **created_at** | **string** | This field has not had a description added. | [optional]
 **transactions** | [**\MetaFab\Model\TransactionModel[]**](TransactionModel.md) |  | [optional]

@@ -763,7 +763,7 @@ getCollectionItems($collection_id): object[]
 
 Get collection items
 
-Returns all collection items as an array of metadata objects.  Please note that ONLY items that have had at least 1 quantity minted will be returned. If you've created an item that has not been minted yet, it will not be returned in the array response.
+Returns all collection items as an array of metadata objects.
 
 ### Example
 

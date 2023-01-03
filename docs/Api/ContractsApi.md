@@ -7,6 +7,8 @@ All URIs are relative to https://api.trymetafab.com, except if the operation def
 | [**createContract()**](ContractsApi.md#createContract) | **POST** /v1/contracts | Create custom contract |
 | [**getContracts()**](ContractsApi.md#getContracts) | **GET** /v1/contracts | Get contracts |
 | [**readContract()**](ContractsApi.md#readContract) | **GET** /v1/contracts/{contractId}/reads | Read contract data |
+| [**transferContractOwnership()**](ContractsApi.md#transferContractOwnership) | **POST** /v1/contracts/{contractId}/owners | Transfer contract ownership |
+| [**upgradeContractTrustedForwarder()**](ContractsApi.md#upgradeContractTrustedForwarder) | **POST** /v1/contracts/{contractId}/forwarders | Upgrade contract trusted forwarder |
 | [**writeContract()**](ContractsApi.md#writeContract) | **POST** /v1/contracts/{contractId}/writes | Write contract data |
 
 
@@ -178,6 +180,130 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `transferContractOwnership()`
+
+```php
+transferContractOwnership($contract_id, $x_authorization, $x_password, $transfer_contract_ownership_request): \MetaFab\Model\TransactionModel
+```
+
+Transfer contract ownership
+
+Transfer ownership and control of a MetaFab deployed smart contract to another wallet you control. Transferring control does not disrupt your usage of MetaFab APIs and can be done so without causing any service outages for your game. The new owner wallet will have full control over any relevant item collections and marketplace related pages this contract may be associated with, such as for MetaFab item or NFT contracts.  Your game's custodial wallet will retain a `MANAGER_ROLE` on your contracts, allowing you to still use MetaFab APIs without issue while you retain full contract ownership and the contract's administrator role. If ever you want eject from using the MetaFab APIs but still retain your deployed smart contracts, you can revoke the `MANAGER_ROLE` from your game's custodial wallet address for your contract. We do not lock you into our systems.  Please be certain that the wallet address you transfer ownership to is one you control. Once ownership and admin permissions are transferred, your game's custodial wallet no longer has permission to reassign ownership or administrative priveleges for your contract.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new MetaFab\Api\ContractsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$contract_id = 'contract_id_example'; // string | Any contract id within the MetaFab ecosystem.
+$x_authorization = game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `secretKey` of the authenticating game.
+$x_password = mySecurePassword; // string | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+$transfer_contract_ownership_request = new \MetaFab\Model\TransferContractOwnershipRequest(); // \MetaFab\Model\TransferContractOwnershipRequest
+
+try {
+    $result = $apiInstance->transferContractOwnership($contract_id, $x_authorization, $x_password, $transfer_contract_ownership_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ContractsApi->transferContractOwnership: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **contract_id** | **string**| Any contract id within the MetaFab ecosystem. | |
+| **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
+| **x_password** | **string**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
+| **transfer_contract_ownership_request** | [**\MetaFab\Model\TransferContractOwnershipRequest**](../Model/TransferContractOwnershipRequest.md)|  | |
+
+### Return type
+
+[**\MetaFab\Model\TransactionModel**](../Model/TransactionModel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `upgradeContractTrustedForwarder()`
+
+```php
+upgradeContractTrustedForwarder($contract_id, $x_authorization, $x_password, $upgrade_contract_trusted_forwarder_request): \MetaFab\Model\TransactionModel
+```
+
+Upgrade contract trusted forwarder
+
+In rare circumstances, you may need to upgrade the underlying trusted forwarder contract address attached to your game's contracts. Using this endpoint, you can provide a new trusted forwarder contract address to assign to any of your contracts that implement the `upgradeTrustedForwarder` function.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new MetaFab\Api\ContractsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$contract_id = 'contract_id_example'; // string | Any contract id within the MetaFab ecosystem.
+$x_authorization = game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `secretKey` of the authenticating game.
+$x_password = mySecurePassword; // string | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+$upgrade_contract_trusted_forwarder_request = new \MetaFab\Model\UpgradeContractTrustedForwarderRequest(); // \MetaFab\Model\UpgradeContractTrustedForwarderRequest
+
+try {
+    $result = $apiInstance->upgradeContractTrustedForwarder($contract_id, $x_authorization, $x_password, $upgrade_contract_trusted_forwarder_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ContractsApi->upgradeContractTrustedForwarder: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **contract_id** | **string**| Any contract id within the MetaFab ecosystem. | |
+| **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
+| **x_password** | **string**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
+| **upgrade_contract_trusted_forwarder_request** | [**\MetaFab\Model\UpgradeContractTrustedForwarderRequest**](../Model/UpgradeContractTrustedForwarderRequest.md)|  | |
+
+### Return type
+
+[**\MetaFab\Model\TransactionModel**](../Model/TransactionModel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
