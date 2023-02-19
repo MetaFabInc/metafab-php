@@ -5,7 +5,7 @@ All URIs are relative to https://api.trymetafab.com, except if the operation def
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**createShop()**](ShopsApi.md#createShop) | **POST** /v1/shops | Create shop |
-| [**getShopOffer()**](ShopsApi.md#getShopOffer) | **GET** /v1/shops/{shopId}/items/{shopOfferId} | Get shop offer |
+| [**getShopOffer()**](ShopsApi.md#getShopOffer) | **GET** /v1/shops/{shopId}/offers/{shopOfferId} | Get shop offer |
 | [**getShopOffers()**](ShopsApi.md#getShopOffers) | **GET** /v1/shops/{shopId}/offers | Get shop offers |
 | [**getShops()**](ShopsApi.md#getShops) | **GET** /v1/shops | Get shops |
 | [**removeShopOffer()**](ShopsApi.md#removeShopOffer) | **DELETE** /v1/shops/{shopId}/offers/{shopOfferId} | Remove shop offer |
@@ -17,7 +17,7 @@ All URIs are relative to https://api.trymetafab.com, except if the operation def
 ## `createShop()`
 
 ```php
-createShop($x_authorization, $x_password, $create_shop_request): \MetaFab\Model\CreateShop200Response
+createShop($x_authorization, $x_wallet_decrypt_key, $create_shop_request): \MetaFab\Model\CreateShop200Response
 ```
 
 Create shop
@@ -38,11 +38,11 @@ $apiInstance = new MetaFab\Api\ShopsApi(
     new GuzzleHttp\Client()
 );
 $x_authorization = game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `secretKey` of the authenticating game.
-$x_password = mySecurePassword; // string | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
 $create_shop_request = new \MetaFab\Model\CreateShopRequest(); // \MetaFab\Model\CreateShopRequest
 
 try {
-    $result = $apiInstance->createShop($x_authorization, $x_password, $create_shop_request);
+    $result = $apiInstance->createShop($x_authorization, $x_wallet_decrypt_key, $create_shop_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShopsApi->createShop: ', $e->getMessage(), PHP_EOL;
@@ -54,7 +54,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
-| **x_password** | **string**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
 | **create_shop_request** | [**\MetaFab\Model\CreateShopRequest**](../Model/CreateShopRequest.md)|  | |
 
 ### Return type
@@ -97,7 +97,7 @@ $apiInstance = new MetaFab\Api\ShopsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$shop_id = 'shop_id_example'; // string | Any shop id within the MetaFab ecosystem.
+$shop_id = 'shop_id_example'; // string | Any shop id within the MetaFab platform.
 $shop_offer_id = 'shop_offer_id_example'; // string | Any offer id for the shop. Zero, or a positive integer.
 
 try {
@@ -112,7 +112,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **shop_id** | **string**| Any shop id within the MetaFab ecosystem. | |
+| **shop_id** | **string**| Any shop id within the MetaFab platform. | |
 | **shop_offer_id** | **string**| Any offer id for the shop. Zero, or a positive integer. | |
 
 ### Return type
@@ -155,7 +155,7 @@ $apiInstance = new MetaFab\Api\ShopsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$shop_id = 'shop_id_example'; // string | Any shop id within the MetaFab ecosystem.
+$shop_id = 'shop_id_example'; // string | Any shop id within the MetaFab platform.
 
 try {
     $result = $apiInstance->getShopOffers($shop_id);
@@ -169,7 +169,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **shop_id** | **string**| Any shop id within the MetaFab ecosystem. | |
+| **shop_id** | **string**| Any shop id within the MetaFab platform. | |
 
 ### Return type
 
@@ -247,7 +247,7 @@ No authorization required
 ## `removeShopOffer()`
 
 ```php
-removeShopOffer($shop_id, $shop_offer_id, $x_authorization, $x_password): \MetaFab\Model\TransactionModel
+removeShopOffer($shop_id, $shop_offer_id, $x_authorization, $x_wallet_decrypt_key): \MetaFab\Model\TransactionModel
 ```
 
 Remove shop offer
@@ -267,13 +267,13 @@ $apiInstance = new MetaFab\Api\ShopsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$shop_id = 'shop_id_example'; // string | Any shop id within the MetaFab ecosystem.
+$shop_id = 'shop_id_example'; // string | Any shop id within the MetaFab platform.
 $shop_offer_id = 'shop_offer_id_example'; // string | Any offer id for the shop. Zero, or a positive integer.
 $x_authorization = game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `secretKey` of the authenticating game.
-$x_password = mySecurePassword; // string | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
 
 try {
-    $result = $apiInstance->removeShopOffer($shop_id, $shop_offer_id, $x_authorization, $x_password);
+    $result = $apiInstance->removeShopOffer($shop_id, $shop_offer_id, $x_authorization, $x_wallet_decrypt_key);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShopsApi->removeShopOffer: ', $e->getMessage(), PHP_EOL;
@@ -284,10 +284,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **shop_id** | **string**| Any shop id within the MetaFab ecosystem. | |
+| **shop_id** | **string**| Any shop id within the MetaFab platform. | |
 | **shop_offer_id** | **string**| Any offer id for the shop. Zero, or a positive integer. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
-| **x_password** | **string**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
 
 ### Return type
 
@@ -309,7 +309,7 @@ No authorization required
 ## `setShopOffer()`
 
 ```php
-setShopOffer($shop_id, $x_authorization, $x_password, $set_shop_offer_request): \MetaFab\Model\TransactionModel
+setShopOffer($shop_id, $x_authorization, $x_wallet_decrypt_key, $set_shop_offer_request): \MetaFab\Model\TransactionModel
 ```
 
 Set shop offer
@@ -329,13 +329,13 @@ $apiInstance = new MetaFab\Api\ShopsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$shop_id = 'shop_id_example'; // string | Any shop id within the MetaFab ecosystem.
+$shop_id = 'shop_id_example'; // string | Any shop id within the MetaFab platform.
 $x_authorization = game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `secretKey` of the authenticating game.
-$x_password = mySecurePassword; // string | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
 $set_shop_offer_request = new \MetaFab\Model\SetShopOfferRequest(); // \MetaFab\Model\SetShopOfferRequest
 
 try {
-    $result = $apiInstance->setShopOffer($shop_id, $x_authorization, $x_password, $set_shop_offer_request);
+    $result = $apiInstance->setShopOffer($shop_id, $x_authorization, $x_wallet_decrypt_key, $set_shop_offer_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShopsApi->setShopOffer: ', $e->getMessage(), PHP_EOL;
@@ -346,9 +346,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **shop_id** | **string**| Any shop id within the MetaFab ecosystem. | |
+| **shop_id** | **string**| Any shop id within the MetaFab platform. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
-| **x_password** | **string**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
 | **set_shop_offer_request** | [**\MetaFab\Model\SetShopOfferRequest**](../Model/SetShopOfferRequest.md)|  | |
 
 ### Return type
@@ -371,7 +371,7 @@ No authorization required
 ## `useShopOffer()`
 
 ```php
-useShopOffer($shop_id, $shop_offer_id, $x_authorization, $x_password): \MetaFab\Model\TransactionModel
+useShopOffer($shop_id, $shop_offer_id, $x_authorization, $x_wallet_decrypt_key): \MetaFab\Model\TransactionModel
 ```
 
 Use shop offer
@@ -391,13 +391,13 @@ $apiInstance = new MetaFab\Api\ShopsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$shop_id = 'shop_id_example'; // string | Any shop id within the MetaFab ecosystem.
+$shop_id = 'shop_id_example'; // string | Any shop id within the MetaFab platform.
 $shop_offer_id = 'shop_offer_id_example'; // string | Any offer id for the shop. Zero, or a positive integer.
 $x_authorization = ["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]; // string | The `secretKey` of a specific game or the `accessToken` of a specific player.
-$x_password = mySecurePassword; // string | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
 
 try {
-    $result = $apiInstance->useShopOffer($shop_id, $shop_offer_id, $x_authorization, $x_password);
+    $result = $apiInstance->useShopOffer($shop_id, $shop_offer_id, $x_authorization, $x_wallet_decrypt_key);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShopsApi->useShopOffer: ', $e->getMessage(), PHP_EOL;
@@ -408,10 +408,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **shop_id** | **string**| Any shop id within the MetaFab ecosystem. | |
+| **shop_id** | **string**| Any shop id within the MetaFab platform. | |
 | **shop_offer_id** | **string**| Any offer id for the shop. Zero, or a positive integer. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. | |
-| **x_password** | **string**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
 
 ### Return type
 
@@ -433,7 +433,7 @@ No authorization required
 ## `withdrawFromShop()`
 
 ```php
-withdrawFromShop($shop_id, $x_authorization, $x_password, $withdraw_from_shop_request): \MetaFab\Model\TransactionModel
+withdrawFromShop($shop_id, $x_authorization, $x_wallet_decrypt_key, $withdraw_from_shop_request): \MetaFab\Model\TransactionModel
 ```
 
 Withdraw from shop
@@ -453,13 +453,13 @@ $apiInstance = new MetaFab\Api\ShopsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$shop_id = 'shop_id_example'; // string | Any shop id within the MetaFab ecosystem.
+$shop_id = 'shop_id_example'; // string | Any shop id within the MetaFab platform.
 $x_authorization = game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `secretKey` of the authenticating game.
-$x_password = mySecurePassword; // string | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
 $withdraw_from_shop_request = new \MetaFab\Model\WithdrawFromShopRequest(); // \MetaFab\Model\WithdrawFromShopRequest
 
 try {
-    $result = $apiInstance->withdrawFromShop($shop_id, $x_authorization, $x_password, $withdraw_from_shop_request);
+    $result = $apiInstance->withdrawFromShop($shop_id, $x_authorization, $x_wallet_decrypt_key, $withdraw_from_shop_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShopsApi->withdrawFromShop: ', $e->getMessage(), PHP_EOL;
@@ -470,9 +470,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **shop_id** | **string**| Any shop id within the MetaFab ecosystem. | |
+| **shop_id** | **string**| Any shop id within the MetaFab platform. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
-| **x_password** | **string**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
 | **withdraw_from_shop_request** | [**\MetaFab\Model\WithdrawFromShopRequest**](../Model/WithdrawFromShopRequest.md)|  | |
 
 ### Return type

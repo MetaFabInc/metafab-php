@@ -30,7 +30,7 @@ All URIs are relative to https://api.trymetafab.com, except if the operation def
 ## `batchMintCollectionItems()`
 
 ```php
-batchMintCollectionItems($collection_id, $x_authorization, $x_password, $batch_mint_collection_items_request): \MetaFab\Model\TransactionModel
+batchMintCollectionItems($collection_id, $x_authorization, $x_wallet_decrypt_key, $batch_mint_collection_items_request): \MetaFab\Model\TransactionModel
 ```
 
 Batch mint collection items
@@ -50,13 +50,13 @@ $apiInstance = new MetaFab\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab platform.
 $x_authorization = game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `secretKey` of the authenticating game.
-$x_password = mySecurePassword; // string | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
 $batch_mint_collection_items_request = new \MetaFab\Model\BatchMintCollectionItemsRequest(); // \MetaFab\Model\BatchMintCollectionItemsRequest
 
 try {
-    $result = $apiInstance->batchMintCollectionItems($collection_id, $x_authorization, $x_password, $batch_mint_collection_items_request);
+    $result = $apiInstance->batchMintCollectionItems($collection_id, $x_authorization, $x_wallet_decrypt_key, $batch_mint_collection_items_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->batchMintCollectionItems: ', $e->getMessage(), PHP_EOL;
@@ -67,9 +67,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **collection_id** | **string**| Any collection id within the MetaFab platform. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
-| **x_password** | **string**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
 | **batch_mint_collection_items_request** | [**\MetaFab\Model\BatchMintCollectionItemsRequest**](../Model/BatchMintCollectionItemsRequest.md)|  | |
 
 ### Return type
@@ -92,7 +92,7 @@ No authorization required
 ## `batchTransferCollectionItems()`
 
 ```php
-batchTransferCollectionItems($collection_id, $x_authorization, $x_password, $batch_transfer_collection_items_request): \MetaFab\Model\TransactionModel
+batchTransferCollectionItems($collection_id, $x_authorization, $x_wallet_decrypt_key, $batch_transfer_collection_items_request): \MetaFab\Model\TransactionModel
 ```
 
 Batch transfer collection items
@@ -112,13 +112,13 @@ $apiInstance = new MetaFab\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab platform.
 $x_authorization = ["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]; // string | The `secretKey` of a specific game or the `accessToken` of a specific player.
-$x_password = mySecurePassword; // string | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
 $batch_transfer_collection_items_request = new \MetaFab\Model\BatchTransferCollectionItemsRequest(); // \MetaFab\Model\BatchTransferCollectionItemsRequest
 
 try {
-    $result = $apiInstance->batchTransferCollectionItems($collection_id, $x_authorization, $x_password, $batch_transfer_collection_items_request);
+    $result = $apiInstance->batchTransferCollectionItems($collection_id, $x_authorization, $x_wallet_decrypt_key, $batch_transfer_collection_items_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->batchTransferCollectionItems: ', $e->getMessage(), PHP_EOL;
@@ -129,9 +129,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **collection_id** | **string**| Any collection id within the MetaFab platform. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. | |
-| **x_password** | **string**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
 | **batch_transfer_collection_items_request** | [**\MetaFab\Model\BatchTransferCollectionItemsRequest**](../Model/BatchTransferCollectionItemsRequest.md)|  | |
 
 ### Return type
@@ -154,7 +154,7 @@ No authorization required
 ## `burnCollectionItem()`
 
 ```php
-burnCollectionItem($collection_id, $collection_item_id, $x_authorization, $x_password, $burn_collection_item_request): \MetaFab\Model\TransactionModel
+burnCollectionItem($collection_id, $collection_item_id, $x_authorization, $x_wallet_decrypt_key, $burn_collection_item_request): \MetaFab\Model\TransactionModel
 ```
 
 Burn collection item
@@ -174,14 +174,14 @@ $apiInstance = new MetaFab\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab platform.
 $collection_item_id = 3.4; // float | Any item id for the collection. Zero, or a positive integer.
 $x_authorization = ["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]; // string | The `secretKey` of a specific game or the `accessToken` of a specific player.
-$x_password = mySecurePassword; // string | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
 $burn_collection_item_request = new \MetaFab\Model\BurnCollectionItemRequest(); // \MetaFab\Model\BurnCollectionItemRequest
 
 try {
-    $result = $apiInstance->burnCollectionItem($collection_id, $collection_item_id, $x_authorization, $x_password, $burn_collection_item_request);
+    $result = $apiInstance->burnCollectionItem($collection_id, $collection_item_id, $x_authorization, $x_wallet_decrypt_key, $burn_collection_item_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->burnCollectionItem: ', $e->getMessage(), PHP_EOL;
@@ -192,10 +192,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **collection_id** | **string**| Any collection id within the MetaFab platform. | |
 | **collection_item_id** | **float**| Any item id for the collection. Zero, or a positive integer. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. | |
-| **x_password** | **string**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
 | **burn_collection_item_request** | [**\MetaFab\Model\BurnCollectionItemRequest**](../Model/BurnCollectionItemRequest.md)|  | |
 
 ### Return type
@@ -218,7 +218,7 @@ No authorization required
 ## `createCollection()`
 
 ```php
-createCollection($x_authorization, $x_password, $create_collection_request): \MetaFab\Model\CreateCollection200Response
+createCollection($x_authorization, $x_wallet_decrypt_key, $create_collection_request): \MetaFab\Model\CreateCollection200Response
 ```
 
 Create collection
@@ -239,11 +239,11 @@ $apiInstance = new MetaFab\Api\ItemsApi(
     new GuzzleHttp\Client()
 );
 $x_authorization = game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `secretKey` of the authenticating game.
-$x_password = mySecurePassword; // string | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
 $create_collection_request = new \MetaFab\Model\CreateCollectionRequest(); // \MetaFab\Model\CreateCollectionRequest
 
 try {
-    $result = $apiInstance->createCollection($x_authorization, $x_password, $create_collection_request);
+    $result = $apiInstance->createCollection($x_authorization, $x_wallet_decrypt_key, $create_collection_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->createCollection: ', $e->getMessage(), PHP_EOL;
@@ -255,7 +255,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
-| **x_password** | **string**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
 | **create_collection_request** | [**\MetaFab\Model\CreateCollectionRequest**](../Model/CreateCollectionRequest.md)|  | |
 
 ### Return type
@@ -278,7 +278,7 @@ No authorization required
 ## `createCollectionItem()`
 
 ```php
-createCollectionItem($collection_id, $x_authorization, $x_password, $create_collection_item_request): \MetaFab\Model\TransactionModel
+createCollectionItem($collection_id, $x_authorization, $x_wallet_decrypt_key, $create_collection_item_request): \MetaFab\Model\TransactionModel
 ```
 
 Create collection item
@@ -298,13 +298,13 @@ $apiInstance = new MetaFab\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab platform.
 $x_authorization = game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `secretKey` of the authenticating game.
-$x_password = mySecurePassword; // string | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
 $create_collection_item_request = new \MetaFab\Model\CreateCollectionItemRequest(); // \MetaFab\Model\CreateCollectionItemRequest
 
 try {
-    $result = $apiInstance->createCollectionItem($collection_id, $x_authorization, $x_password, $create_collection_item_request);
+    $result = $apiInstance->createCollectionItem($collection_id, $x_authorization, $x_wallet_decrypt_key, $create_collection_item_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->createCollectionItem: ', $e->getMessage(), PHP_EOL;
@@ -315,9 +315,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **collection_id** | **string**| Any collection id within the MetaFab platform. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
-| **x_password** | **string**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
 | **create_collection_item_request** | [**\MetaFab\Model\CreateCollectionItemRequest**](../Model/CreateCollectionItemRequest.md)|  | |
 
 ### Return type
@@ -360,10 +360,10 @@ $apiInstance = new MetaFab\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab platform.
 $operator_address = 0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D; // string | A valid EVM based address. For example, `0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D`.
 $address = 0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D; // string | A valid EVM based address. For example, `0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D`.
-$wallet_id = 'wallet_id_example'; // string | Any wallet id within the MetaFab ecosystem.
+$wallet_id = 'wallet_id_example'; // string | Any wallet id within the MetaFab platform.
 
 try {
     $result = $apiInstance->getCollectionApproval($collection_id, $operator_address, $address, $wallet_id);
@@ -377,10 +377,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **collection_id** | **string**| Any collection id within the MetaFab platform. | |
 | **operator_address** | **string**| A valid EVM based address. For example, &#x60;0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D&#x60;. | |
 | **address** | **string**| A valid EVM based address. For example, &#x60;0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D&#x60;. | [optional] |
-| **wallet_id** | **string**| Any wallet id within the MetaFab ecosystem. | [optional] |
+| **wallet_id** | **string**| Any wallet id within the MetaFab platform. | [optional] |
 
 ### Return type
 
@@ -402,7 +402,7 @@ No authorization required
 ## `getCollectionItem()`
 
 ```php
-getCollectionItem($collection_id, $collection_item_id): object
+getCollectionItem($collection_id, $collection_item_id): \MetaFab\Model\CollectionItem
 ```
 
 Get collection item
@@ -422,7 +422,7 @@ $apiInstance = new MetaFab\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab platform.
 $collection_item_id = 3.4; // float | Any item id for the collection. Zero, or a positive integer.
 
 try {
@@ -437,12 +437,12 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **collection_id** | **string**| Any collection id within the MetaFab platform. | |
 | **collection_item_id** | **float**| Any item id for the collection. Zero, or a positive integer. | |
 
 ### Return type
 
-**object**
+[**\MetaFab\Model\CollectionItem**](../Model/CollectionItem.md)
 
 ### Authorization
 
@@ -480,10 +480,10 @@ $apiInstance = new MetaFab\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab platform.
 $collection_item_id = 3.4; // float | Any item id for the collection. Zero, or a positive integer.
 $address = 0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D; // string | A valid EVM based address. For example, `0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D`.
-$wallet_id = 'wallet_id_example'; // string | Any wallet id within the MetaFab ecosystem.
+$wallet_id = 'wallet_id_example'; // string | Any wallet id within the MetaFab platform.
 
 try {
     $result = $apiInstance->getCollectionItemBalance($collection_id, $collection_item_id, $address, $wallet_id);
@@ -497,10 +497,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **collection_id** | **string**| Any collection id within the MetaFab platform. | |
 | **collection_item_id** | **float**| Any item id for the collection. Zero, or a positive integer. | |
 | **address** | **string**| A valid EVM based address. For example, &#x60;0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D&#x60;. | [optional] |
-| **wallet_id** | **string**| Any wallet id within the MetaFab ecosystem. | [optional] |
+| **wallet_id** | **string**| Any wallet id within the MetaFab platform. | [optional] |
 
 ### Return type
 
@@ -542,9 +542,9 @@ $apiInstance = new MetaFab\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab platform.
 $address = 0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D; // string | A valid EVM based address. For example, `0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D`.
-$wallet_id = 'wallet_id_example'; // string | Any wallet id within the MetaFab ecosystem.
+$wallet_id = 'wallet_id_example'; // string | Any wallet id within the MetaFab platform.
 
 try {
     $result = $apiInstance->getCollectionItemBalances($collection_id, $address, $wallet_id);
@@ -558,9 +558,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **collection_id** | **string**| Any collection id within the MetaFab platform. | |
 | **address** | **string**| A valid EVM based address. For example, &#x60;0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D&#x60;. | [optional] |
-| **wallet_id** | **string**| Any wallet id within the MetaFab ecosystem. | [optional] |
+| **wallet_id** | **string**| Any wallet id within the MetaFab platform. | [optional] |
 
 ### Return type
 
@@ -602,7 +602,7 @@ $apiInstance = new MetaFab\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab platform.
 
 try {
     $result = $apiInstance->getCollectionItemSupplies($collection_id);
@@ -616,7 +616,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **collection_id** | **string**| Any collection id within the MetaFab platform. | |
 
 ### Return type
 
@@ -658,10 +658,10 @@ $apiInstance = new MetaFab\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab platform.
 $collection_item_id = 3.4; // float | Any item id for the collection. Zero, or a positive integer.
 $address = 0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D; // string | A valid EVM based address. For example, `0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D`.
-$wallet_id = 'wallet_id_example'; // string | Any wallet id within the MetaFab ecosystem.
+$wallet_id = 'wallet_id_example'; // string | Any wallet id within the MetaFab platform.
 
 try {
     $result = $apiInstance->getCollectionItemSupply($collection_id, $collection_item_id, $address, $wallet_id);
@@ -675,10 +675,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **collection_id** | **string**| Any collection id within the MetaFab platform. | |
 | **collection_item_id** | **float**| Any item id for the collection. Zero, or a positive integer. | |
 | **address** | **string**| A valid EVM based address. For example, &#x60;0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D&#x60;. | [optional] |
-| **wallet_id** | **string**| Any wallet id within the MetaFab ecosystem. | [optional] |
+| **wallet_id** | **string**| Any wallet id within the MetaFab platform. | [optional] |
 
 ### Return type
 
@@ -720,7 +720,7 @@ $apiInstance = new MetaFab\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab platform.
 $collection_item_id = 3.4; // float | Any item id for the collection. Zero, or a positive integer.
 
 try {
@@ -735,7 +735,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **collection_id** | **string**| Any collection id within the MetaFab platform. | |
 | **collection_item_id** | **float**| Any item id for the collection. Zero, or a positive integer. | |
 
 ### Return type
@@ -758,7 +758,7 @@ No authorization required
 ## `getCollectionItems()`
 
 ```php
-getCollectionItems($collection_id): object[]
+getCollectionItems($collection_id): \MetaFab\Model\CollectionItem[]
 ```
 
 Get collection items
@@ -778,7 +778,7 @@ $apiInstance = new MetaFab\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab platform.
 
 try {
     $result = $apiInstance->getCollectionItems($collection_id);
@@ -792,11 +792,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **collection_id** | **string**| Any collection id within the MetaFab platform. | |
 
 ### Return type
 
-**object[]**
+[**\MetaFab\Model\CollectionItem[]**](../Model/CollectionItem.md)
 
 ### Authorization
 
@@ -834,10 +834,10 @@ $apiInstance = new MetaFab\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab platform.
 $role = minter; // string | A valid MetaFab role or bytes string representing a role, such as `0xc9eb32e43bf5ecbceacf00b32281dfc5d6d700a0db676ea26ccf938a385ac3b7`
 $address = 0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D; // string | A valid EVM based address. For example, `0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D`.
-$wallet_id = 'wallet_id_example'; // string | Any wallet id within the MetaFab ecosystem.
+$wallet_id = 'wallet_id_example'; // string | Any wallet id within the MetaFab platform.
 
 try {
     $result = $apiInstance->getCollectionRole($collection_id, $role, $address, $wallet_id);
@@ -851,10 +851,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **collection_id** | **string**| Any collection id within the MetaFab platform. | |
 | **role** | **string**| A valid MetaFab role or bytes string representing a role, such as &#x60;0xc9eb32e43bf5ecbceacf00b32281dfc5d6d700a0db676ea26ccf938a385ac3b7&#x60; | |
 | **address** | **string**| A valid EVM based address. For example, &#x60;0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D&#x60;. | [optional] |
-| **wallet_id** | **string**| Any wallet id within the MetaFab ecosystem. | [optional] |
+| **wallet_id** | **string**| Any wallet id within the MetaFab platform. | [optional] |
 
 ### Return type
 
@@ -932,7 +932,7 @@ No authorization required
 ## `grantCollectionRole()`
 
 ```php
-grantCollectionRole($collection_id, $x_authorization, $x_password, $grant_collection_role_request): \MetaFab\Model\TransactionModel
+grantCollectionRole($collection_id, $x_authorization, $x_wallet_decrypt_key, $grant_collection_role_request): \MetaFab\Model\TransactionModel
 ```
 
 Grant collection role
@@ -952,13 +952,13 @@ $apiInstance = new MetaFab\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab platform.
 $x_authorization = ["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]; // string | The `secretKey` of a specific game or the `accessToken` of a specific player.
-$x_password = mySecurePassword; // string | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
 $grant_collection_role_request = new \MetaFab\Model\GrantCollectionRoleRequest(); // \MetaFab\Model\GrantCollectionRoleRequest
 
 try {
-    $result = $apiInstance->grantCollectionRole($collection_id, $x_authorization, $x_password, $grant_collection_role_request);
+    $result = $apiInstance->grantCollectionRole($collection_id, $x_authorization, $x_wallet_decrypt_key, $grant_collection_role_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->grantCollectionRole: ', $e->getMessage(), PHP_EOL;
@@ -969,9 +969,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **collection_id** | **string**| Any collection id within the MetaFab platform. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. | |
-| **x_password** | **string**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
 | **grant_collection_role_request** | [**\MetaFab\Model\GrantCollectionRoleRequest**](../Model/GrantCollectionRoleRequest.md)|  | |
 
 ### Return type
@@ -994,7 +994,7 @@ No authorization required
 ## `mintCollectionItem()`
 
 ```php
-mintCollectionItem($collection_id, $collection_item_id, $x_authorization, $x_password, $mint_collection_item_request): \MetaFab\Model\TransactionModel
+mintCollectionItem($collection_id, $collection_item_id, $x_authorization, $x_wallet_decrypt_key, $mint_collection_item_request): \MetaFab\Model\TransactionModel
 ```
 
 Mint collection item
@@ -1014,14 +1014,14 @@ $apiInstance = new MetaFab\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab platform.
 $collection_item_id = 3.4; // float | Any item id for the collection. Zero, or a positive integer.
 $x_authorization = game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `secretKey` of the authenticating game.
-$x_password = mySecurePassword; // string | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
 $mint_collection_item_request = new \MetaFab\Model\MintCollectionItemRequest(); // \MetaFab\Model\MintCollectionItemRequest
 
 try {
-    $result = $apiInstance->mintCollectionItem($collection_id, $collection_item_id, $x_authorization, $x_password, $mint_collection_item_request);
+    $result = $apiInstance->mintCollectionItem($collection_id, $collection_item_id, $x_authorization, $x_wallet_decrypt_key, $mint_collection_item_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->mintCollectionItem: ', $e->getMessage(), PHP_EOL;
@@ -1032,10 +1032,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **collection_id** | **string**| Any collection id within the MetaFab platform. | |
 | **collection_item_id** | **float**| Any item id for the collection. Zero, or a positive integer. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
-| **x_password** | **string**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
 | **mint_collection_item_request** | [**\MetaFab\Model\MintCollectionItemRequest**](../Model/MintCollectionItemRequest.md)|  | |
 
 ### Return type
@@ -1058,7 +1058,7 @@ No authorization required
 ## `revokeCollectionRole()`
 
 ```php
-revokeCollectionRole($collection_id, $x_authorization, $x_password, $revoke_collection_role_request): \MetaFab\Model\TransactionModel
+revokeCollectionRole($collection_id, $x_authorization, $x_wallet_decrypt_key, $revoke_collection_role_request): \MetaFab\Model\TransactionModel
 ```
 
 Revoke collection role
@@ -1078,13 +1078,13 @@ $apiInstance = new MetaFab\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab platform.
 $x_authorization = ["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]; // string | The `secretKey` of a specific game or the `accessToken` of a specific player.
-$x_password = mySecurePassword; // string | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
 $revoke_collection_role_request = new \MetaFab\Model\RevokeCollectionRoleRequest(); // \MetaFab\Model\RevokeCollectionRoleRequest
 
 try {
-    $result = $apiInstance->revokeCollectionRole($collection_id, $x_authorization, $x_password, $revoke_collection_role_request);
+    $result = $apiInstance->revokeCollectionRole($collection_id, $x_authorization, $x_wallet_decrypt_key, $revoke_collection_role_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->revokeCollectionRole: ', $e->getMessage(), PHP_EOL;
@@ -1095,9 +1095,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **collection_id** | **string**| Any collection id within the MetaFab platform. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. | |
-| **x_password** | **string**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
 | **revoke_collection_role_request** | [**\MetaFab\Model\RevokeCollectionRoleRequest**](../Model/RevokeCollectionRoleRequest.md)|  | |
 
 ### Return type
@@ -1120,7 +1120,7 @@ No authorization required
 ## `setCollectionApproval()`
 
 ```php
-setCollectionApproval($collection_id, $x_authorization, $x_password, $set_collection_approval_request): \MetaFab\Model\TransactionModel
+setCollectionApproval($collection_id, $x_authorization, $x_wallet_decrypt_key, $set_collection_approval_request): \MetaFab\Model\TransactionModel
 ```
 
 Set collection approval
@@ -1140,13 +1140,13 @@ $apiInstance = new MetaFab\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab platform.
 $x_authorization = ["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]; // string | The `secretKey` of a specific game or the `accessToken` of a specific player.
-$x_password = mySecurePassword; // string | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
 $set_collection_approval_request = new \MetaFab\Model\SetCollectionApprovalRequest(); // \MetaFab\Model\SetCollectionApprovalRequest
 
 try {
-    $result = $apiInstance->setCollectionApproval($collection_id, $x_authorization, $x_password, $set_collection_approval_request);
+    $result = $apiInstance->setCollectionApproval($collection_id, $x_authorization, $x_wallet_decrypt_key, $set_collection_approval_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->setCollectionApproval: ', $e->getMessage(), PHP_EOL;
@@ -1157,9 +1157,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **collection_id** | **string**| Any collection id within the MetaFab platform. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. | |
-| **x_password** | **string**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
 | **set_collection_approval_request** | [**\MetaFab\Model\SetCollectionApprovalRequest**](../Model/SetCollectionApprovalRequest.md)|  | |
 
 ### Return type
@@ -1182,7 +1182,7 @@ No authorization required
 ## `setCollectionItemTimelock()`
 
 ```php
-setCollectionItemTimelock($collection_id, $collection_item_id, $x_authorization, $x_password, $set_collection_item_timelock_request): \MetaFab\Model\TransactionModel
+setCollectionItemTimelock($collection_id, $collection_item_id, $x_authorization, $x_wallet_decrypt_key, $set_collection_item_timelock_request): \MetaFab\Model\TransactionModel
 ```
 
 Set collection item timelock
@@ -1202,14 +1202,14 @@ $apiInstance = new MetaFab\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab platform.
 $collection_item_id = 3.4; // float | Any item id for the collection. Zero, or a positive integer.
 $x_authorization = game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `secretKey` of the authenticating game.
-$x_password = mySecurePassword; // string | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
 $set_collection_item_timelock_request = new \MetaFab\Model\SetCollectionItemTimelockRequest(); // \MetaFab\Model\SetCollectionItemTimelockRequest
 
 try {
-    $result = $apiInstance->setCollectionItemTimelock($collection_id, $collection_item_id, $x_authorization, $x_password, $set_collection_item_timelock_request);
+    $result = $apiInstance->setCollectionItemTimelock($collection_id, $collection_item_id, $x_authorization, $x_wallet_decrypt_key, $set_collection_item_timelock_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->setCollectionItemTimelock: ', $e->getMessage(), PHP_EOL;
@@ -1220,10 +1220,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **collection_id** | **string**| Any collection id within the MetaFab platform. | |
 | **collection_item_id** | **float**| Any item id for the collection. Zero, or a positive integer. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
-| **x_password** | **string**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
 | **set_collection_item_timelock_request** | [**\MetaFab\Model\SetCollectionItemTimelockRequest**](../Model/SetCollectionItemTimelockRequest.md)|  | |
 
 ### Return type
@@ -1246,7 +1246,7 @@ No authorization required
 ## `transferCollectionItem()`
 
 ```php
-transferCollectionItem($collection_id, $collection_item_id, $x_authorization, $x_password, $transfer_collection_item_request): \MetaFab\Model\TransactionModel
+transferCollectionItem($collection_id, $collection_item_id, $x_authorization, $x_wallet_decrypt_key, $transfer_collection_item_request): \MetaFab\Model\TransactionModel
 ```
 
 Transfer collection item
@@ -1266,14 +1266,14 @@ $apiInstance = new MetaFab\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab ecosystem.
+$collection_id = 'collection_id_example'; // string | Any collection id within the MetaFab platform.
 $collection_item_id = 3.4; // float | Any item id for the collection. Zero, or a positive integer.
 $x_authorization = ["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]; // string | The `secretKey` of a specific game or the `accessToken` of a specific player.
-$x_password = mySecurePassword; // string | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
 $transfer_collection_item_request = new \MetaFab\Model\TransferCollectionItemRequest(); // \MetaFab\Model\TransferCollectionItemRequest
 
 try {
-    $result = $apiInstance->transferCollectionItem($collection_id, $collection_item_id, $x_authorization, $x_password, $transfer_collection_item_request);
+    $result = $apiInstance->transferCollectionItem($collection_id, $collection_item_id, $x_authorization, $x_wallet_decrypt_key, $transfer_collection_item_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->transferCollectionItem: ', $e->getMessage(), PHP_EOL;
@@ -1284,10 +1284,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **collection_id** | **string**| Any collection id within the MetaFab ecosystem. | |
+| **collection_id** | **string**| Any collection id within the MetaFab platform. | |
 | **collection_item_id** | **float**| Any item id for the collection. Zero, or a positive integer. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. | |
-| **x_password** | **string**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
 | **transfer_collection_item_request** | [**\MetaFab\Model\TransferCollectionItemRequest**](../Model/TransferCollectionItemRequest.md)|  | |
 
 ### Return type

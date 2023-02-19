@@ -148,7 +148,7 @@ $apiInstance = new MetaFab\Api\GamesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$game_id = 'game_id_example'; // string | Any game id within the MetaFab ecosystem.
+$game_id = 'game_id_example'; // string | Any game id within the MetaFab platform.
 
 try {
     $result = $apiInstance->getGame($game_id);
@@ -162,7 +162,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **game_id** | **string**| Any game id within the MetaFab ecosystem. | |
+| **game_id** | **string**| Any game id within the MetaFab platform. | |
 
 ### Return type
 
@@ -184,7 +184,7 @@ No authorization required
 ## `updateGame()`
 
 ```php
-updateGame($game_id, $x_authorization, $update_game_request): \MetaFab\Model\GameModel
+updateGame($game_id, $x_authorization, $update_game_request): \MetaFab\Model\UpdateGame200Response
 ```
 
 Update game
@@ -204,7 +204,7 @@ $apiInstance = new MetaFab\Api\GamesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$game_id = 'game_id_example'; // string | Any game id within the MetaFab ecosystem.
+$game_id = 'game_id_example'; // string | The game id of the authenticating game.
 $x_authorization = game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `secretKey` of the authenticating game.
 $update_game_request = new \MetaFab\Model\UpdateGameRequest(); // \MetaFab\Model\UpdateGameRequest
 
@@ -220,13 +220,13 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **game_id** | **string**| Any game id within the MetaFab ecosystem. | |
+| **game_id** | **string**| The game id of the authenticating game. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
 | **update_game_request** | [**\MetaFab\Model\UpdateGameRequest**](../Model/UpdateGameRequest.md)|  | |
 
 ### Return type
 
-[**\MetaFab\Model\GameModel**](../Model/GameModel.md)
+[**\MetaFab\Model\UpdateGame200Response**](../Model/UpdateGame200Response.md)
 
 ### Authorization
 

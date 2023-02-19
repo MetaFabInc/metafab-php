@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **verified** | **bool** | This field has not had a description added. | [optional]
 **updated_at** | **string** | This field has not had a description added. | [optional]
 **created_at** | **string** | This field has not had a description added. | [optional]
+**wallet_decrypt_key** | **string** | This field has not had a description added. | [optional]
 **wallet** | [**\MetaFab\Model\WalletModel**](WalletModel.md) |  | [optional]
 **funding_wallet** | [**\MetaFab\Model\WalletModel**](WalletModel.md) |  | [optional]
 

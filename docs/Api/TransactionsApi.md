@@ -30,7 +30,7 @@ $apiInstance = new MetaFab\Api\TransactionsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$transaction_id = 'transaction_id_example'; // string | Any transaction id within the MetaFab ecosystem.
+$transaction_id = 'transaction_id_example'; // string | Any transaction id within the MetaFab platform.
 
 try {
     $result = $apiInstance->getTransaction($transaction_id);
@@ -44,7 +44,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **transaction_id** | **string**| Any transaction id within the MetaFab ecosystem. | |
+| **transaction_id** | **string**| Any transaction id within the MetaFab platform. | |
 
 ### Return type
 

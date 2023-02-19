@@ -149,7 +149,7 @@ $apiInstance = new MetaFab\Api\ContractsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$contract_id = 'contract_id_example'; // string | Any contract id within the MetaFab ecosystem.
+$contract_id = 'contract_id_example'; // string | Any contract id within the MetaFab platform.
 $func = 'func_example'; // string | A contract function name. This can be any valid function from the the ABI of the contract you are interacting with. For example, `balanceOf`.
 $args = 123,"Hello",false; // string | A comma seperated list of basic data type arguments. This is optional and only necessary if the function being invoked requires arguments per the contract ABI. For example, `123,\"Hello\",false`.
 
@@ -165,7 +165,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **contract_id** | **string**| Any contract id within the MetaFab ecosystem. | |
+| **contract_id** | **string**| Any contract id within the MetaFab platform. | |
 | **func** | **string**| A contract function name. This can be any valid function from the the ABI of the contract you are interacting with. For example, &#x60;balanceOf&#x60;. | |
 | **args** | **string**| A comma seperated list of basic data type arguments. This is optional and only necessary if the function being invoked requires arguments per the contract ABI. For example, &#x60;123,\&quot;Hello\&quot;,false&#x60;. | [optional] |
 
@@ -189,7 +189,7 @@ No authorization required
 ## `transferContractOwnership()`
 
 ```php
-transferContractOwnership($contract_id, $x_authorization, $x_password, $transfer_contract_ownership_request): \MetaFab\Model\TransactionModel
+transferContractOwnership($contract_id, $x_authorization, $x_wallet_decrypt_key, $transfer_contract_ownership_request): \MetaFab\Model\TransactionModel
 ```
 
 Transfer contract ownership
@@ -209,13 +209,13 @@ $apiInstance = new MetaFab\Api\ContractsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$contract_id = 'contract_id_example'; // string | Any contract id within the MetaFab ecosystem.
+$contract_id = 'contract_id_example'; // string | Any contract id within the MetaFab platform.
 $x_authorization = game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `secretKey` of the authenticating game.
-$x_password = mySecurePassword; // string | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
 $transfer_contract_ownership_request = new \MetaFab\Model\TransferContractOwnershipRequest(); // \MetaFab\Model\TransferContractOwnershipRequest
 
 try {
-    $result = $apiInstance->transferContractOwnership($contract_id, $x_authorization, $x_password, $transfer_contract_ownership_request);
+    $result = $apiInstance->transferContractOwnership($contract_id, $x_authorization, $x_wallet_decrypt_key, $transfer_contract_ownership_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContractsApi->transferContractOwnership: ', $e->getMessage(), PHP_EOL;
@@ -226,9 +226,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **contract_id** | **string**| Any contract id within the MetaFab ecosystem. | |
+| **contract_id** | **string**| Any contract id within the MetaFab platform. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
-| **x_password** | **string**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
 | **transfer_contract_ownership_request** | [**\MetaFab\Model\TransferContractOwnershipRequest**](../Model/TransferContractOwnershipRequest.md)|  | |
 
 ### Return type
@@ -251,7 +251,7 @@ No authorization required
 ## `upgradeContractTrustedForwarder()`
 
 ```php
-upgradeContractTrustedForwarder($contract_id, $x_authorization, $x_password, $upgrade_contract_trusted_forwarder_request): \MetaFab\Model\TransactionModel
+upgradeContractTrustedForwarder($contract_id, $x_authorization, $x_wallet_decrypt_key, $upgrade_contract_trusted_forwarder_request): \MetaFab\Model\TransactionModel
 ```
 
 Upgrade contract trusted forwarder
@@ -271,13 +271,13 @@ $apiInstance = new MetaFab\Api\ContractsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$contract_id = 'contract_id_example'; // string | Any contract id within the MetaFab ecosystem.
+$contract_id = 'contract_id_example'; // string | Any contract id within the MetaFab platform.
 $x_authorization = game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `secretKey` of the authenticating game.
-$x_password = mySecurePassword; // string | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
 $upgrade_contract_trusted_forwarder_request = new \MetaFab\Model\UpgradeContractTrustedForwarderRequest(); // \MetaFab\Model\UpgradeContractTrustedForwarderRequest
 
 try {
-    $result = $apiInstance->upgradeContractTrustedForwarder($contract_id, $x_authorization, $x_password, $upgrade_contract_trusted_forwarder_request);
+    $result = $apiInstance->upgradeContractTrustedForwarder($contract_id, $x_authorization, $x_wallet_decrypt_key, $upgrade_contract_trusted_forwarder_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContractsApi->upgradeContractTrustedForwarder: ', $e->getMessage(), PHP_EOL;
@@ -288,9 +288,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **contract_id** | **string**| Any contract id within the MetaFab ecosystem. | |
+| **contract_id** | **string**| Any contract id within the MetaFab platform. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
-| **x_password** | **string**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
 | **upgrade_contract_trusted_forwarder_request** | [**\MetaFab\Model\UpgradeContractTrustedForwarderRequest**](../Model/UpgradeContractTrustedForwarderRequest.md)|  | |
 
 ### Return type
@@ -313,7 +313,7 @@ No authorization required
 ## `writeContract()`
 
 ```php
-writeContract($contract_id, $x_authorization, $x_password, $write_contract_request): \MetaFab\Model\TransactionModel
+writeContract($contract_id, $x_authorization, $x_wallet_decrypt_key, $write_contract_request): \MetaFab\Model\TransactionModel
 ```
 
 Write contract data
@@ -333,13 +333,13 @@ $apiInstance = new MetaFab\Api\ContractsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$contract_id = 'contract_id_example'; // string | Any contract id within the MetaFab ecosystem.
+$contract_id = 'contract_id_example'; // string | Any contract id within the MetaFab platform.
 $x_authorization = ["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]; // string | The `secretKey` of a specific game or the `accessToken` of a specific player.
-$x_password = mySecurePassword; // string | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
 $write_contract_request = new \MetaFab\Model\WriteContractRequest(); // \MetaFab\Model\WriteContractRequest
 
 try {
-    $result = $apiInstance->writeContract($contract_id, $x_authorization, $x_password, $write_contract_request);
+    $result = $apiInstance->writeContract($contract_id, $x_authorization, $x_wallet_decrypt_key, $write_contract_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContractsApi->writeContract: ', $e->getMessage(), PHP_EOL;
@@ -350,9 +350,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **contract_id** | **string**| Any contract id within the MetaFab ecosystem. | |
+| **contract_id** | **string**| Any contract id within the MetaFab platform. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. | |
-| **x_password** | **string**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
 | **write_contract_request** | [**\MetaFab\Model\WriteContractRequest**](../Model/WriteContractRequest.md)|  | |
 
 ### Return type

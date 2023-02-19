@@ -8,8 +8,10 @@ Name | Type | Description | Notes
 **game_id** | **string** | This field has not had a description added. | [optional]
 **wallet_id** | **string** | This field has not had a description added. | [optional]
 **connected_wallet_id** | **string** | This field has not had a description added. | [optional]
+**profile_id** | **string** | This field has not had a description added. | [optional]
 **username** | **string** | This field has not had a description added. | [optional]
 **access_token** | **string** | This field has not had a description added. | [optional]
+**profile_permissions** | **object** | This field has not had a description added. | [optional]
 **updated_at** | **string** | This field has not had a description added. | [optional]
 **created_at** | **string** | This field has not had a description added. | [optional]
 

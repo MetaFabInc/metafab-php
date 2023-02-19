@@ -16,7 +16,7 @@ All URIs are relative to https://api.trymetafab.com, except if the operation def
 ## `createLootboxManager()`
 
 ```php
-createLootboxManager($x_authorization, $x_password, $create_lootbox_manager_request): \MetaFab\Model\CreateLootboxManager200Response
+createLootboxManager($x_authorization, $x_wallet_decrypt_key, $create_lootbox_manager_request): \MetaFab\Model\CreateLootboxManager200Response
 ```
 
 Create lootbox manager
@@ -37,11 +37,11 @@ $apiInstance = new MetaFab\Api\LootboxesApi(
     new GuzzleHttp\Client()
 );
 $x_authorization = game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `secretKey` of the authenticating game.
-$x_password = mySecurePassword; // string | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
 $create_lootbox_manager_request = new \MetaFab\Model\CreateLootboxManagerRequest(); // \MetaFab\Model\CreateLootboxManagerRequest
 
 try {
-    $result = $apiInstance->createLootboxManager($x_authorization, $x_password, $create_lootbox_manager_request);
+    $result = $apiInstance->createLootboxManager($x_authorization, $x_wallet_decrypt_key, $create_lootbox_manager_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LootboxesApi->createLootboxManager: ', $e->getMessage(), PHP_EOL;
@@ -53,7 +53,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
-| **x_password** | **string**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
 | **create_lootbox_manager_request** | [**\MetaFab\Model\CreateLootboxManagerRequest**](../Model/CreateLootboxManagerRequest.md)|  | |
 
 ### Return type
@@ -96,8 +96,8 @@ $apiInstance = new MetaFab\Api\LootboxesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$lootbox_manager_id = 'lootbox_manager_id_example'; // string | Any lootbox manager id within the MetaFab ecosystem.
-$lootbox_manager_lootbox_id = 'lootbox_manager_lootbox_id_example'; // string | Any lootbox manager lootbox id within the MetaFab ecosystem.
+$lootbox_manager_id = 'lootbox_manager_id_example'; // string | Any lootbox manager id within the MetaFab platform.
+$lootbox_manager_lootbox_id = 'lootbox_manager_lootbox_id_example'; // string | Any lootbox manager lootbox id within the MetaFab platform.
 
 try {
     $result = $apiInstance->getLootboxManagerLootbox($lootbox_manager_id, $lootbox_manager_lootbox_id);
@@ -111,8 +111,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **lootbox_manager_id** | **string**| Any lootbox manager id within the MetaFab ecosystem. | |
-| **lootbox_manager_lootbox_id** | **string**| Any lootbox manager lootbox id within the MetaFab ecosystem. | |
+| **lootbox_manager_id** | **string**| Any lootbox manager id within the MetaFab platform. | |
+| **lootbox_manager_lootbox_id** | **string**| Any lootbox manager lootbox id within the MetaFab platform. | |
 
 ### Return type
 
@@ -154,7 +154,7 @@ $apiInstance = new MetaFab\Api\LootboxesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$lootbox_manager_id = 'lootbox_manager_id_example'; // string | Any lootbox manager id within the MetaFab ecosystem.
+$lootbox_manager_id = 'lootbox_manager_id_example'; // string | Any lootbox manager id within the MetaFab platform.
 
 try {
     $result = $apiInstance->getLootboxManagerLootboxes($lootbox_manager_id);
@@ -168,7 +168,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **lootbox_manager_id** | **string**| Any lootbox manager id within the MetaFab ecosystem. | |
+| **lootbox_manager_id** | **string**| Any lootbox manager id within the MetaFab platform. | |
 
 ### Return type
 
@@ -246,7 +246,7 @@ No authorization required
 ## `openLootboxManagerLootbox()`
 
 ```php
-openLootboxManagerLootbox($lootbox_manager_id, $lootbox_manager_lootbox_id, $x_authorization, $x_password): \MetaFab\Model\TransactionModel[]
+openLootboxManagerLootbox($lootbox_manager_id, $lootbox_manager_lootbox_id, $x_authorization, $x_wallet_decrypt_key): \MetaFab\Model\TransactionModel[]
 ```
 
 Open lootbox manager lootbox
@@ -266,13 +266,13 @@ $apiInstance = new MetaFab\Api\LootboxesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$lootbox_manager_id = 'lootbox_manager_id_example'; // string | Any lootbox manager id within the MetaFab ecosystem.
-$lootbox_manager_lootbox_id = 'lootbox_manager_lootbox_id_example'; // string | Any lootbox manager lootbox id within the MetaFab ecosystem.
+$lootbox_manager_id = 'lootbox_manager_id_example'; // string | Any lootbox manager id within the MetaFab platform.
+$lootbox_manager_lootbox_id = 'lootbox_manager_lootbox_id_example'; // string | Any lootbox manager lootbox id within the MetaFab platform.
 $x_authorization = ["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]; // string | The `secretKey` of a specific game or the `accessToken` of a specific player.
-$x_password = mySecurePassword; // string | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
 
 try {
-    $result = $apiInstance->openLootboxManagerLootbox($lootbox_manager_id, $lootbox_manager_lootbox_id, $x_authorization, $x_password);
+    $result = $apiInstance->openLootboxManagerLootbox($lootbox_manager_id, $lootbox_manager_lootbox_id, $x_authorization, $x_wallet_decrypt_key);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LootboxesApi->openLootboxManagerLootbox: ', $e->getMessage(), PHP_EOL;
@@ -283,10 +283,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **lootbox_manager_id** | **string**| Any lootbox manager id within the MetaFab ecosystem. | |
-| **lootbox_manager_lootbox_id** | **string**| Any lootbox manager lootbox id within the MetaFab ecosystem. | |
+| **lootbox_manager_id** | **string**| Any lootbox manager id within the MetaFab platform. | |
+| **lootbox_manager_lootbox_id** | **string**| Any lootbox manager lootbox id within the MetaFab platform. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. | |
-| **x_password** | **string**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. | |
 
 ### Return type
 
@@ -308,7 +308,7 @@ No authorization required
 ## `removeLootboxManagerLootbox()`
 
 ```php
-removeLootboxManagerLootbox($lootbox_manager_id, $lootbox_manager_lootbox_id, $x_authorization, $x_password): \MetaFab\Model\TransactionModel
+removeLootboxManagerLootbox($lootbox_manager_id, $lootbox_manager_lootbox_id, $x_authorization, $x_wallet_decrypt_key): \MetaFab\Model\TransactionModel
 ```
 
 Remove lootbox manager lootbox
@@ -328,13 +328,13 @@ $apiInstance = new MetaFab\Api\LootboxesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$lootbox_manager_id = 'lootbox_manager_id_example'; // string | Any lootbox manager id within the MetaFab ecosystem.
-$lootbox_manager_lootbox_id = 'lootbox_manager_lootbox_id_example'; // string | Any lootbox manager lootbox id within the MetaFab ecosystem.
+$lootbox_manager_id = 'lootbox_manager_id_example'; // string | Any lootbox manager id within the MetaFab platform.
+$lootbox_manager_lootbox_id = 'lootbox_manager_lootbox_id_example'; // string | Any lootbox manager lootbox id within the MetaFab platform.
 $x_authorization = game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `secretKey` of the authenticating game.
-$x_password = mySecurePassword; // string | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
 
 try {
-    $result = $apiInstance->removeLootboxManagerLootbox($lootbox_manager_id, $lootbox_manager_lootbox_id, $x_authorization, $x_password);
+    $result = $apiInstance->removeLootboxManagerLootbox($lootbox_manager_id, $lootbox_manager_lootbox_id, $x_authorization, $x_wallet_decrypt_key);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LootboxesApi->removeLootboxManagerLootbox: ', $e->getMessage(), PHP_EOL;
@@ -345,10 +345,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **lootbox_manager_id** | **string**| Any lootbox manager id within the MetaFab ecosystem. | |
-| **lootbox_manager_lootbox_id** | **string**| Any lootbox manager lootbox id within the MetaFab ecosystem. | |
+| **lootbox_manager_id** | **string**| Any lootbox manager id within the MetaFab platform. | |
+| **lootbox_manager_lootbox_id** | **string**| Any lootbox manager lootbox id within the MetaFab platform. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
-| **x_password** | **string**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
 
 ### Return type
 
@@ -370,7 +370,7 @@ No authorization required
 ## `setLootboxManagerLootbox()`
 
 ```php
-setLootboxManagerLootbox($lootbox_manager_id, $x_authorization, $x_password, $set_lootbox_manager_lootbox_request): \MetaFab\Model\TransactionModel
+setLootboxManagerLootbox($lootbox_manager_id, $x_authorization, $x_wallet_decrypt_key, $set_lootbox_manager_lootbox_request): \MetaFab\Model\TransactionModel
 ```
 
 Set lootbox manager lootbox
@@ -390,13 +390,13 @@ $apiInstance = new MetaFab\Api\LootboxesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$lootbox_manager_id = 'lootbox_manager_id_example'; // string | Any lootbox manager id within the MetaFab ecosystem.
+$lootbox_manager_id = 'lootbox_manager_id_example'; // string | Any lootbox manager id within the MetaFab platform.
 $x_authorization = game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `secretKey` of the authenticating game.
-$x_password = mySecurePassword; // string | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+$x_wallet_decrypt_key = AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=; // string | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
 $set_lootbox_manager_lootbox_request = new \MetaFab\Model\SetLootboxManagerLootboxRequest(); // \MetaFab\Model\SetLootboxManagerLootboxRequest
 
 try {
-    $result = $apiInstance->setLootboxManagerLootbox($lootbox_manager_id, $x_authorization, $x_password, $set_lootbox_manager_lootbox_request);
+    $result = $apiInstance->setLootboxManagerLootbox($lootbox_manager_id, $x_authorization, $x_wallet_decrypt_key, $set_lootbox_manager_lootbox_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LootboxesApi->setLootboxManagerLootbox: ', $e->getMessage(), PHP_EOL;
@@ -407,9 +407,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **lootbox_manager_id** | **string**| Any lootbox manager id within the MetaFab ecosystem. | |
+| **lootbox_manager_id** | **string**| Any lootbox manager id within the MetaFab platform. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of the authenticating game. | |
-| **x_password** | **string**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
+| **x_wallet_decrypt_key** | **string**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. | |
 | **set_lootbox_manager_lootbox_request** | [**\MetaFab\Model\SetLootboxManagerLootboxRequest**](../Model/SetLootboxManagerLootboxRequest.md)|  | |
 
 ### Return type

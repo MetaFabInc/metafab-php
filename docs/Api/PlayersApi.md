@@ -158,7 +158,7 @@ $apiInstance = new MetaFab\Api\PlayersApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$player_id = 'player_id_example'; // string | Any player id within the MetaFab ecosystem.
+$player_id = 'player_id_example'; // string | Any player id within the MetaFab platform.
 
 try {
     $result = $apiInstance->getPlayer($player_id);
@@ -172,7 +172,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **player_id** | **string**| Any player id within the MetaFab ecosystem. | |
+| **player_id** | **string**| Any player id within the MetaFab platform. | |
 
 ### Return type
 
@@ -214,7 +214,7 @@ $apiInstance = new MetaFab\Api\PlayersApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$player_id = 'player_id_example'; // string | Any player id within the MetaFab ecosystem.
+$player_id = 'player_id_example'; // string | Any player id within the MetaFab platform.
 
 try {
     $result = $apiInstance->getPlayerData($player_id);
@@ -228,7 +228,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **player_id** | **string**| Any player id within the MetaFab ecosystem. | |
+| **player_id** | **string**| Any player id within the MetaFab platform. | |
 
 ### Return type
 
@@ -326,8 +326,8 @@ $apiInstance = new MetaFab\Api\PlayersApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$player_id = 'player_id_example'; // string | Any player id within the MetaFab ecosystem.
-$player_wallet_id = 'player_wallet_id_example'; // string | Any player wallet id within the MetaFab ecosystem.
+$player_id = 'player_id_example'; // string | Any player id within the MetaFab platform.
+$player_wallet_id = 'player_wallet_id_example'; // string | Any player wallet id within the MetaFab platform.
 $remove_player_connected_wallet_request = new \MetaFab\Model\RemovePlayerConnectedWalletRequest(); // \MetaFab\Model\RemovePlayerConnectedWalletRequest
 
 try {
@@ -341,8 +341,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **player_id** | **string**| Any player id within the MetaFab ecosystem. | |
-| **player_wallet_id** | **string**| Any player wallet id within the MetaFab ecosystem. | |
+| **player_id** | **string**| Any player id within the MetaFab platform. | |
+| **player_wallet_id** | **string**| Any player wallet id within the MetaFab platform. | |
 | **remove_player_connected_wallet_request** | [**\MetaFab\Model\RemovePlayerConnectedWalletRequest**](../Model/RemovePlayerConnectedWalletRequest.md)|  | |
 
 ### Return type
@@ -385,7 +385,7 @@ $apiInstance = new MetaFab\Api\PlayersApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$player_id = 'player_id_example'; // string | Any player id within the MetaFab ecosystem.
+$player_id = 'player_id_example'; // string | The player id of the authenticating player.
 $x_authorization = player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `accessToken` of the authenticating player.
 $set_player_connected_wallet_request = new \MetaFab\Model\SetPlayerConnectedWalletRequest(); // \MetaFab\Model\SetPlayerConnectedWalletRequest
 
@@ -401,7 +401,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **player_id** | **string**| Any player id within the MetaFab ecosystem. | |
+| **player_id** | **string**| The player id of the authenticating player. | |
 | **x_authorization** | **string**| The &#x60;accessToken&#x60; of the authenticating player. | |
 | **set_player_connected_wallet_request** | [**\MetaFab\Model\SetPlayerConnectedWalletRequest**](../Model/SetPlayerConnectedWalletRequest.md)|  | |
 
@@ -445,7 +445,7 @@ $apiInstance = new MetaFab\Api\PlayersApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$player_id = 'player_id_example'; // string | Any player id within the MetaFab ecosystem.
+$player_id = 'player_id_example'; // string | Any player id within the MetaFab platform.
 $x_authorization = ["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]; // string | The `secretKey` of a specific game or the `accessToken` of a specific player.
 $set_player_data_request = new \MetaFab\Model\SetPlayerDataRequest(); // \MetaFab\Model\SetPlayerDataRequest
 
@@ -461,7 +461,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **player_id** | **string**| Any player id within the MetaFab ecosystem. | |
+| **player_id** | **string**| Any player id within the MetaFab platform. | |
 | **x_authorization** | **string**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. | |
 | **set_player_data_request** | [**\MetaFab\Model\SetPlayerDataRequest**](../Model/SetPlayerDataRequest.md)|  | |
 
@@ -485,7 +485,7 @@ No authorization required
 ## `updatePlayer()`
 
 ```php
-updatePlayer($player_id, $x_authorization, $update_player_request): \MetaFab\Model\PlayerModel
+updatePlayer($player_id, $x_authorization, $update_player_request): \MetaFab\Model\UpdatePlayer200Response
 ```
 
 Update player
@@ -505,7 +505,7 @@ $apiInstance = new MetaFab\Api\PlayersApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$player_id = 'player_id_example'; // string | Any player id within the MetaFab ecosystem.
+$player_id = 'player_id_example'; // string | The player id of the authenticating player.
 $x_authorization = player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP; // string | The `accessToken` of the authenticating player.
 $update_player_request = new \MetaFab\Model\UpdatePlayerRequest(); // \MetaFab\Model\UpdatePlayerRequest
 
@@ -521,13 +521,13 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **player_id** | **string**| Any player id within the MetaFab ecosystem. | |
+| **player_id** | **string**| The player id of the authenticating player. | |
 | **x_authorization** | **string**| The &#x60;accessToken&#x60; of the authenticating player. | |
 | **update_player_request** | [**\MetaFab\Model\UpdatePlayerRequest**](../Model/UpdatePlayerRequest.md)|  | |
 
 ### Return type
 
-[**\MetaFab\Model\PlayerModel**](../Model/PlayerModel.md)
+[**\MetaFab\Model\UpdatePlayer200Response**](../Model/UpdatePlayer200Response.md)
 
 ### Authorization
 
