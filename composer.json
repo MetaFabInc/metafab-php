@@ -1,4 +1,5 @@
 {
+    "name": "metafabinc/php-sdk",
     "description": "Complete MetaFab API references and guides can be found at: https://trymetafab.com",
     "keywords": [
         "openapitools",
