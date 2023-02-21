@@ -13,23 +13,11 @@ Should also work with PHP 8.0.
 
 ### Composer
 
-To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
+To install the SDK via [Composer](https://getcomposer.org/) run:
 
 ```json
-{
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
-    }
-  ],
-  "require": {
-    "GIT_USER_ID/GIT_REPO_ID": "*@dev"
-  }
-}
+composer require metafabinc/php-sdk
 ```
-
-Then run `composer install`
 
 ### Manual Installation
 
@@ -37,7 +25,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/MetaFab/vendor/autoload.php');
+require_once('/path/to/metafabinc/php-sdk/vendor/autoload.php');
 ```
 
 ## Getting Started
